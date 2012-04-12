@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, AppNotificadorActivity!</string>
+    <string name="app_name">AppNotificador</string>
+    <string name="opcion">Opciones</string>
+    <string name="nombre">Nombre</string>
+    <string name="documento">Documento</string>
+    <string name="entrar">Entrar</string>
+    <string name="institucional">Ude@, Nuestra alma.</string>
+    <string name="nada"/>
+    <string name="descripcion_busqueda">Realiza busquedas especificas.</string>
+    <string name="descripcion_filtro">Muestra solo el tipo de mensajes de interes.</string>
+    <string name="descripcion_mensaje">Revisa nuevos mensajes de Ude@</string>
+    <string name="titulo_mensaje">RESULTADOS DE LA PRUEBA SABER</string>
+    <string name="materia">InglesIII</string>
+    <string name="asunto">Apuntes sobre la computadora.</string>
+    <string name="cuerpo">Una computadora o computador (del inglés computer y este del latín computare -calcular), también denominada ordenador (del francés ordinateur, y este del latín ordinator), es una máquina electrónica que recibe y procesa datos para convertirlos en información útil. Una computadora es una colección de circuitos integrados y otros componentes relacionados que puede ejecutar con exactitud, rapidez y de acuerdo a lo indicado por un usuario o automáticamente por otro programa, una gran variedad de secuencias o rutinas de instrucciones que son ordenadas, organizadas y sistematizadas en función a una amplia gama de aplicaciones prácticas y precisamente determinadas, proceso al cual se le ha denominado con el nombre de programación y al que lo realiza se le llama programador.</string>
+    <string name="remitente">Carlos Henao</string>
+    <string name="curso">Informatica a distancia.</string>
+    <string name="fecha">02/04/2012</string>
+    <string name="descripcion_compartir">Comparte el mensaje en las diferentes redes sociales</string>
+    <string name="descripcion_guardar">Guarda los mensajes para leerlos mas tarde sin necesidad de conectarse.</string>
+    <string name="descripcion_borrar">Borra el mensaje actual.</string>
+
+</resources>

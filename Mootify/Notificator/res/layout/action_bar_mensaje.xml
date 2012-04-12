@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ Este Este diseño tiene la función de proporcionarle
+ al usuario las opciones para manipular el mensaje que
+ actualmente está leyendo, las opciones son: compartir, guardar y borrar.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content" 
+ android:background="#335b74"       
+>
+    <ImageButton 
+     android:id="@+id/borrar"
+     android:background="@drawable/borrar"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"     
+     android:layout_alignParentRight="true"
+     android:contentDescription="@string/descripcion_borrar"
+     android:onClick="borrar"
+    />
+    <ImageView 
+     android:id="@+id/separator1"
+     android:background="@drawable/separator"
+     android:layout_width="2sp"
+     android:layout_height="48sp"     
+     android:layout_toLeftOf="@id/borrar"
+     android:contentDescription="@string/nada"
+    />
+     
+    <ImageButton 
+     android:id="@+id/guardar"
+     android:background="@drawable/guardar"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_toLeftOf="@id/separator1"
+     android:contentDescription="@string/descripcion_guardar"
+     android:onClick="guardar"
+    />
+    
+    <ImageView 
+     android:id="@+id/separator2"
+     android:background="@drawable/separator"
+     android:layout_width="2sp"
+     android:layout_height="48sp"     
+     android:layout_toLeftOf="@id/guardar"
+     android:contentDescription="@string/nada"   
+    />
+
+    <ImageButton
+        android:id="@+id/compartir"
+        android:background="@drawable/compartir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:layout_toLeftOf="@id/separator2"
+        android:contentDescription="@string/descripcion_compartir"
+        android:onClick="compartir"         
+    />
+    
+    <ImageView 
+     android:id="@+id/separator3"
+     android:background="@drawable/separator"
+     android:layout_width="2sp"
+     android:layout_height="48sp"     
+     android:layout_toLeftOf="@id/compartir"
+     android:contentDescription="@string/nada"   
+    />
+    
+    <ImageView
+     android:id="@+id/Logo"
+     android:background="@drawable/logo"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"     
+     android:layout_alignParentLeft="true"
+     android:layout_marginTop="6sp"
+     android:layout_marginLeft="5sp"
+     android:contentDescription="@string/nada"  
+    />
+    
+    
+
+</RelativeLayout>
