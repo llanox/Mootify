@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click Me, please, click me!!" >
+    </Button>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambien puedes hacer clic en cada ImageButton contenido en cada fila del ListView...Y tambien puedes dar clic en la fila del ListView y veras como se desplega los datos contenidos del Student." >
+    </TextView>
+    <ListView
+        android:id="@+id/studentListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+</LinearLayout>

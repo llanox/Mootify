@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Texto relevante usado en la aplicación. -->
+    <string name="app_name" >QuickActionMenu Using Greendroid</string>
+
+    <!-- Texto de los Widgets usados en el XML para ser inflado como ListView. -->
+    <string name="full_name_label" >Student Full Name</string>
+    <string name="id_number_label" >C.C.: +Id. Number</string>
+    <string name="age_label" >Student Age</string>
+
+    <!-- Algunas o varias descripciones. -->
+    <string name="description_imagebutton" ></string>
+
+</resources>

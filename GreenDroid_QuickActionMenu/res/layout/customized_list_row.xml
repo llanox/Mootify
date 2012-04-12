@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="onLayoutClick" >
+
+    <TextView
+        android:id="@+id/full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/full_name_label"
+        android:textAppearance="?android:attr/textAppearanceLarge" >
+    </TextView>
+    <TextView
+        android:id="@+id/id_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/full_name"
+        android:text="@string/id_number_label" >
+    </TextView>
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/id_number"
+        android:layout_alignBottom="@+id/id_number"
+        android:layout_centerHorizontal="true"
+        android:text="@string/age_label"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+    </TextView>
+
+    <ImageButton
+        android:id="@+id/imagebutton_quickaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/age"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/description_imagebutton"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onShowQuickActionMenu"
+        android:src="@drawable/ic_menu_more" >
+    </ImageButton>
+</RelativeLayout>
