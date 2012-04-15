@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".AppNotificadorActivity"
+            android:name=".ui.AppNotificadorActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,17 +19,17 @@
             </intent-filter>
         </activity>
         <activity
-         android:name=".ItemLista"
+         android:name=".model.ItemLista"
          android:label="@string/app_name" 
         >            
         </activity>
         <activity
-         android:name=".Mensaje"
+         android:name=".model.Mensaje"
          android:label="@string/app_name" 
         >            
         </activity>
         <activity
-         android:name=".UiTest"
+         android:name=".ui.UiTest"
          android:label="@string/app_name" 
         >            
         </activity>
