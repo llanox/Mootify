@@ -2,7 +2,7 @@
 <!-- 
  Este Este diseño tiene la función de proporcionarle
  al usuario las opciones para manipular el mensaje que
- actualmente está leyendo, las opciones son: compartir, guardar y borrar.
+ actualmente está leyendo, las opciones son: compartir, guardar y borrar..
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
  android:layout_width="match_parent"
