@@ -12,32 +12,17 @@
  android:layout_width="fill_parent"
  android:layout_height="fill_parent"
  android:background="#FFFFFF"
->
- 
- <TextView  
-   android:id="@+id/opcion"
-   android:text="@string/opcion"
-   android:layout_height="wrap_content"
-   android:layout_width="wrap_content"
-   android:layout_alignParentRight="true"
-   android:layout_marginRight="2sp"
-   android:textColor="#0B3B2E"
- />
- 
- <RelativeLayout 
-   android:id="@+id/login"
-   android:layout_centerHorizontal="true"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
- >
+ android:id="@+id/login"
+ android:layout_centerHorizontal="true"
+> 
  
   <ImageView 
-   android:id="@+id/logotipo"
-   android:layout_below="@id/opcion"   
+   android:id="@+id/logotipo"      
    android:background="@drawable/udearroba"
    android:layout_width="wrap_content"
    android:layout_height="wrap_content"     
    android:layout_marginTop="90sp"
+   android:layout_centerHorizontal="true"
    android:contentDescription="@string/institucional"
   
   />
@@ -49,7 +34,8 @@
    android:layout_centerHorizontal="true"
    android:layout_width="120sp"
    android:layout_height="45sp"
-   android:hint="@string/nombre"   
+   android:hint="@string/nombre_usuario"
+   android:textSize="14.5sp"     
   />
   
   <EditText 
@@ -58,7 +44,9 @@
    android:layout_centerHorizontal="true"
    android:layout_width="120sp"
    android:layout_height="45sp"
-   android:hint="@string/documento"
+   android:hint="@string/password"
+   android:inputType="textPassword"
+   android:textSize="14.5sp"      
   />
  
   <Button 
@@ -70,8 +58,5 @@
    android:layout_height="wrap_content"
    android:onClick="entrar"
    
-  />  
-  
- </RelativeLayout>
- 
+  />
 </RelativeLayout>

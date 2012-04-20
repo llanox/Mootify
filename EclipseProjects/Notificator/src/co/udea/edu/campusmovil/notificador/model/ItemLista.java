@@ -1,7 +1,5 @@
 package co.udea.edu.campusmovil.notificador.model;
 
-import android.app.Activity;
-import android.os.Bundle;
 /*
  * Esta clase es la encargada de manejar los datos que 
  * tiene el mensaje: título, materia, fecha y remitente.

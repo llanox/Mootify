@@ -1,7 +1,6 @@
 package co.udea.edu.campusmovil.notificador.ui;
 
 import co.udea.edu.campusmovil.notificador.R;
-import co.udea.edu.campusmovil.notificador.R.layout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

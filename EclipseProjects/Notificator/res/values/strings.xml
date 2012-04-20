@@ -4,8 +4,8 @@
     <string name="hello">Hello World, AppNotificadorActivity!</string>
     <string name="app_name">AppNotificador</string>
     <string name="opcion">Opciones</string>
-    <string name="nombre">Nombre</string>
-    <string name="documento">Documento</string>
+    <string name="nombre_usuario">Usuario Mares</string>
+    <string name="password">Password</string>
     <string name="entrar">Entrar</string>
     <string name="institucional">Ude@, Nuestra alma.</string>
     <string name="nada"/>
@@ -14,8 +14,13 @@
     <string name="descripcion_mensaje">Revisa nuevos mensajes de Ude@</string>
     <string name="titulo_mensaje">RESULTADOS DE LA PRUEBA SABER</string>
     <string name="materia">InglesIII</string>
-    <string name="asunto">Apuntes sobre la computadora.</string>
-    <string name="cuerpo">Una computadora o computador (del inglés computer y este del latín computare -calcular), también denominada ordenador (del francés ordinateur, y este del latín ordinator), es una máquina electrónica que recibe y procesa datos para convertirlos en información útil. Una computadora es una colección de circuitos integrados y otros componentes relacionados que puede ejecutar con exactitud, rapidez y de acuerdo a lo indicado por un usuario o automáticamente por otro programa, una gran variedad de secuencias o rutinas de instrucciones que son ordenadas, organizadas y sistematizadas en función a una amplia gama de aplicaciones prácticas y precisamente determinadas, proceso al cual se le ha denominado con el nombre de programación y al que lo realiza se le llama programador.</string>
+    <string name="asunto">Apuntes sobre la computadora, su definicion y funcionamiento.</string>
+    <string name="cuerpo">Una computadora o computador (del inglés computer y este del latín computare -calcular), también denominada ordenador (del francés ordinateur, y este del latín ordinator), es una máquina electrónica
+                          que recibe y procesa datos para convertirlos en información útil. Una computadora es una colección de circuitos integrados y otros componentes relacionados que puede ejecutar con exactitud, rapidez y 
+                          de acuerdo a lo indicado por un usuario o automáticamente por otro programa, una gran variedad de secuencias o rutinas de instrucciones que son ordenadas, organizadas y sistematizadas en función a una 
+                          amplia gama de aplicaciones prácticas y precisamente determinadas, proceso al cual se le ha denominado con el nombre de programación y al que lo realiza se le llama programador. La computadora, además 
+                          de la rutina o programa informático, necesita de datos específicos (a estos datos, en conjunto, se les conoce como "Input" en inglés o de entrada) que deben ser suministrados, y que son requeridos al 
+                          momento de la ejecución, para proporcionar el producto final del procesamiento de datos, que recibe el nombre de "output" o de salida.</string>
     <string name="remitente">Carlos Henao</string>
     <string name="curso">Informatica a distancia.</string>
     <string name="fecha">02/04/2012</string>
