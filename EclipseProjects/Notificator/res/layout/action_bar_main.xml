@@ -1,82 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!-- 
- Este diseño tiene la función de proporcionar al usuario
- las opciones para manipular los mensajes que actualmente 
- está viendo en la lista, las opciones son: 
- leer mensaje, filtrar mensajes y buscar un mensaje especifico.
+    Este diseño tiene la función de proporcionar al usuario
+    las opciones para manipular los mensajes que actualmente 
+    está viendo en la lista, las opciones son:
+    leer mensaje, filtrar mensajes y buscar un mensaje especifico.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
- android:layout_width="match_parent"
- android:layout_height="wrap_content" 
- android:background="#335b74"       
->
-    <ImageButton 
-     android:id="@+id/busqueda"
-     android:background="@drawable/busqueda"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"     
-     android:layout_alignParentRight="true"
-     android:contentDescription="@string/descripcion_busqueda"
-     android:onClick="buscar"
-    />
-    <ImageView 
-     android:id="@+id/separator1"
-     android:background="@drawable/separator"
-     android:layout_width="2sp"
-     android:layout_height="48sp"     
-     android:layout_toLeftOf="@id/busqueda"
-     android:contentDescription="@string/nada"
-    />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#335b74" >
+
+    <ImageButton
+        android:id="@+id/busqueda"
+        android:background="@drawable/busqueda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/descripcion_busqueda"
+        android:onClick="buscar" />
+
+    <ImageView
+        android:id="@+id/separator1"
+        android:background="@drawable/separator"
+        android:layout_width="2sp"
+        android:layout_height="48sp"
+        android:layout_toLeftOf="@id/busqueda"
+        android:contentDescription="@string/nada" />
      
-    <ImageButton 
-     android:id="@+id/filtro"
-     android:background="@drawable/filtro"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_toLeftOf="@id/separator1"
-     android:contentDescription="@string/descripcion_filtro"
-     android:onClick="filtrar"
-    />
-    
-    <ImageView 
-     android:id="@+id/separator2"
-     android:background="@drawable/separator"
-     android:layout_width="2sp"
-     android:layout_height="48sp"     
-     android:layout_toLeftOf="@id/filtro"
-     android:contentDescription="@string/nada"   
-    />
+    <ImageButton
+        android:id="@+id/filtro"
+        android:background="@drawable/filtro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/separator1"
+        android:contentDescription="@string/descripcion_filtro"
+        android:onClick="filtrar" />
+
+    <ImageView
+        android:id="@+id/separator2"
+        android:background="@drawable/separator"
+        android:layout_width="2sp"
+        android:layout_height="48sp"
+        android:layout_toLeftOf="@id/filtro"
+        android:contentDescription="@string/nada" />
 
     <ImageButton
         android:id="@+id/mensaje"
         android:background="@drawable/mensajes"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        
+        android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/separator2"
         android:contentDescription="@string/descripcion_mensaje"
-        android:onClick="mensajes"         
-    />
-    
-    <ImageView 
-     android:id="@+id/separator3"
-     android:background="@drawable/separator"
-     android:layout_width="2sp"
-     android:layout_height="48sp"     
-     android:layout_toLeftOf="@id/mensaje"
-     android:contentDescription="@string/nada"   
-    />
-    
-    <ImageView
-     android:id="@+id/Logo"
-     android:background="@drawable/logo"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"     
-     android:layout_alignParentLeft="true"
-     android:layout_marginTop="6sp"
-     android:layout_marginLeft="5sp"
-     android:contentDescription="@string/nada"  
-    />
-    
-    
+        android:onClick="mensajes" />
 
+    <ImageView
+        android:id="@+id/separator3"
+        android:background="@drawable/separator"
+        android:layout_width="2sp"
+        android:layout_height="48sp"
+        android:layout_toLeftOf="@id/mensaje"
+        android:contentDescription="@string/nada" />
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:background="@drawable/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="6sp"
+        android:layout_marginLeft="5sp"
+        android:contentDescription="@string/nada" />
 </RelativeLayout>

@@ -1,62 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
- Este diseño está encargado de mostrar dos cuadros 
- de texto donde el usuario teclea su contraseña 
- para poder acceder a la aplicación, por el momento
- no está implementado el login. Pueden seguir a la 
- aplicación dando click en el botón “Entrar”, nos
- lleva a la actividad UiTest.
+
+<!--
+    Este diseño está encargado de mostrar dos cuadros 
+    de texto donde el usuario teclea su contraseña 
+    para poder acceder a la aplicación, por el momento
+    no está implementado el login. Pueden seguir a la 
+    aplicación dando click en el botón “Entrar”, nos
+    lleva a la actividad UiTest.
 -->
-<RelativeLayout 
- xmlns:android="http://schemas.android.com/apk/res/android"    
- android:layout_width="fill_parent"
- android:layout_height="fill_parent"
- android:background="#FFFFFF"
- android:id="@+id/login"
- android:layout_centerHorizontal="true"
-> 
- 
-  <ImageView 
-   android:id="@+id/logotipo"      
-   android:background="@drawable/udearroba"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"     
-   android:layout_marginTop="90sp"
-   android:layout_centerHorizontal="true"
-   android:contentDescription="@string/institucional"
-  
-  />
-  
-  <EditText 
-   android:id="@+id/usuario"   
-   android:layout_below="@id/logotipo"
-   android:layout_marginTop="7sp"
-   android:layout_centerHorizontal="true"
-   android:layout_width="120sp"
-   android:layout_height="45sp"
-   android:hint="@string/nombre_usuario"
-   android:textSize="14.5sp"     
-  />
-  
-  <EditText 
-   android:id="@+id/clave"
-   android:layout_below="@id/usuario"   
-   android:layout_centerHorizontal="true"
-   android:layout_width="120sp"
-   android:layout_height="45sp"
-   android:hint="@string/password"
-   android:inputType="textPassword"
-   android:textSize="14.5sp"      
-  />
- 
-  <Button 
-   android:id="@+id/entrar"
-   android:layout_below="@id/clave"
-   android:layout_centerHorizontal="true"
-   android:text="@string/entrar"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:onClick="entrar"
-   
-  />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:id="@+id/login"
+    android:layout_centerHorizontal="true" >
+
+    <ImageView
+        android:id="@+id/logotipo"
+        android:background="@drawable/udearroba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90sp"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/institucional" />
+
+    <EditText 
+        android:id="@+id/usuario"
+        android:layout_below="@id/logotipo"
+        android:layout_marginTop="7sp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="120sp"
+        android:layout_height="45sp"
+        android:hint="@string/nombre_usuario"
+        android:textSize="14.5sp" />
+
+    <EditText
+        android:id="@+id/clave"
+        android:layout_below="@id/usuario"
+        android:layout_centerHorizontal="true"
+        android:layout_width="120sp"
+        android:layout_height="45sp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textSize="14.5sp" />
+
+    <Button 
+        android:id="@+id/entrar"
+        android:layout_below="@id/clave"
+        android:layout_centerHorizontal="true"
+        android:text="@string/entrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="entrar" />
 </RelativeLayout>

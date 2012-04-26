@@ -10,7 +10,6 @@ import android.util.Log;
 
 public class ServiceMessageMock implements MessageService {
 
-	@Override
 	public List<ItemLista> findAllMessage(String idEstudiante, String password, int firstRecord, int lastRecord) {
 		List<ItemLista>  lista =  new ArrayList<ItemLista>();
 		

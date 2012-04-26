@@ -1,7 +1,7 @@
 package co.udea.edu.campusmovil.notificador.model;
 
 
-public class Mensaje 
+public class Message 
 {
       private String id;
       private String name;
