@@ -8,49 +8,48 @@
     aplicación dando click en el botón “Entrar”, nos
     lleva a la actividad UiTest.
 -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/main_background"
+    android:id="@+id/login_layout"
     android:layout_height="fill_parent"
-    android:background="#FFFFFF"
-    android:id="@+id/login"
-    android:layout_centerHorizontal="true" >
+    android:layout_width="fill_parent" >
 
     <ImageView
+        android:contentDescription="@string/institutional"
         android:id="@+id/logotipo"
-        android:background="@drawable/udearroba"
-        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginTop="90sp"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/institucional" />
+        android:layout_width="wrap_content"
+        android:src="@drawable/udearroba" />
 
     <EditText 
-        android:id="@+id/usuario"
+        android:hint="@string/user_name"
+        android:id="@+id/user_name"
         android:layout_below="@id/logotipo"
-        android:layout_marginTop="7sp"
         android:layout_centerHorizontal="true"
-        android:layout_width="120sp"
-        android:layout_height="45sp"
-        android:hint="@string/nombre_usuario"
-        android:textSize="14.5sp" />
+        android:layout_marginTop="7sp"
+        android:layout_height="@dimen/login_text_field_height"
+        android:layout_width="@dimen/login_text_field_width"
+        android:textSize="@dimen/login_text_size" />
 
     <EditText
-        android:id="@+id/clave"
-        android:layout_below="@id/usuario"
-        android:layout_centerHorizontal="true"
-        android:layout_width="120sp"
-        android:layout_height="45sp"
         android:hint="@string/password"
+        android:id="@+id/password"
         android:inputType="textPassword"
-        android:textSize="14.5sp" />
-
-    <Button 
-        android:id="@+id/entrar"
-        android:layout_below="@id/clave"
+        android:layout_below="@id/user_name"
         android:layout_centerHorizontal="true"
-        android:text="@string/entrar"
+        android:layout_height="@dimen/login_text_field_height"
+        android:layout_width="@dimen/login_text_field_width"
+        android:textSize="@dimen/login_text_size" />
+
+    <Button
+        android:id="@+id/login"
+        android:width="100sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="entrar" />
+        android:onClick="login"
+        android:text="@string/login" />
 </RelativeLayout>

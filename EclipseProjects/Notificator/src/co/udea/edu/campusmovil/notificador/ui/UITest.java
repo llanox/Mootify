@@ -28,14 +28,6 @@ public class UITest extends Activity {
 
     ListView lista;
 
-    // Create an anonymous implementation of OnClickListener.
-    private OnClickListener mCorkyListener = new OnClickListener() {
-        public void onClick(View v) {
-            Intent intent = new Intent(UITest.this, MessageHandler.class);
-            startActivity(intent);
-        }
-    };
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.view_principal);
@@ -52,6 +44,14 @@ public class UITest extends Activity {
         Adaptador ad = new Adaptador(this, elementos);
         lista.setAdapter(ad);
     }
+
+    // Create an anonymous implementation of OnClickListener.
+    private OnClickListener mCorkyListener = new OnClickListener() {
+        public void onClick(View v) {
+            Intent intent = new Intent(UITest.this, MessageHandler.class);
+            startActivity(intent);
+        }
+    };
 
     private void showError(MootifyException e) {
         
@@ -72,8 +72,12 @@ public class UITest extends Activity {
         Toast.makeText(this,"Cargando mensajes..." , Toast.LENGTH_SHORT).show();
     }
 
+    public void showQuickActionMenu(View view) {
+        Toast.makeText(this, "Showing A QuickAction ...", Toast.LENGTH_LONG).show();
+    }
+
     // Clase temporal para probar el ListView.
-    public class Adaptador extends ArrayAdapter<ItemLista> {
+    private class Adaptador extends ArrayAdapter<ItemLista> {
         Activity contexto;
 
         public Adaptador(Activity contexto, List<ItemLista> elementos) {

@@ -10,6 +10,14 @@ package co.udea.edu.campusmovil.notificador;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int main_background=0x7f040000;
+    }
+    public static final class dimen {
+        public static final int login_text_field_height=0x7f050001;
+        public static final int login_text_field_width=0x7f050002;
+        public static final int login_text_size=0x7f050000;
+    }
     public static final class drawable {
         public static final int borrar=0x7f020000;
         public static final int busqueda=0x7f020001;
@@ -25,34 +33,34 @@ public final class R {
         public static final int udearroba=0x7f02000b;
     }
     public static final class id {
-        public static final int Barra_acc=0x7f05001a;
-        public static final int Barra_accion_mensaje=0x7f050018;
-        public static final int Contenido_mensaje=0x7f050019;
-        public static final int Logo=0x7f050006;
-        public static final int asunto=0x7f050013;
-        public static final int borrar=0x7f050007;
-        public static final int busqueda=0x7f050000;
-        public static final int clave=0x7f050010;
-        public static final int compartir=0x7f050009;
-        public static final int cuerpo_mensaje=0x7f050017;
-        public static final int curso=0x7f050016;
-        public static final int encabezado=0x7f050012;
-        public static final int entrar=0x7f050011;
-        public static final int fecha=0x7f050015;
-        public static final int filtro=0x7f050002;
-        public static final int guardar=0x7f050008;
-        public static final int ident=0x7f05000c;
-        public static final int lista_elementos=0x7f05001b;
-        public static final int login=0x7f05000d;
-        public static final int logotipo=0x7f05000e;
-        public static final int materia=0x7f05000b;
-        public static final int mensaje=0x7f050004;
-        public static final int remitente=0x7f050014;
-        public static final int separator1=0x7f050001;
-        public static final int separator2=0x7f050003;
-        public static final int separator3=0x7f050005;
-        public static final int titulo_mensaje=0x7f05000a;
-        public static final int usuario=0x7f05000f;
+        public static final int Barra_acc=0x7f07001a;
+        public static final int Barra_accion_mensaje=0x7f070018;
+        public static final int Contenido_mensaje=0x7f070019;
+        public static final int Logo=0x7f070006;
+        public static final int asunto=0x7f070013;
+        public static final int borrar=0x7f070007;
+        public static final int busqueda=0x7f070000;
+        public static final int compartir=0x7f070009;
+        public static final int cuerpo_mensaje=0x7f070017;
+        public static final int curso=0x7f070016;
+        public static final int encabezado=0x7f070012;
+        public static final int fecha=0x7f070015;
+        public static final int filtro=0x7f070002;
+        public static final int guardar=0x7f070008;
+        public static final int ident=0x7f07000c;
+        public static final int lista_elementos=0x7f07001b;
+        public static final int login=0x7f070011;
+        public static final int login_layout=0x7f07000d;
+        public static final int logotipo=0x7f07000e;
+        public static final int materia=0x7f07000b;
+        public static final int mensaje=0x7f070004;
+        public static final int password=0x7f070010;
+        public static final int remitente=0x7f070014;
+        public static final int separator1=0x7f070001;
+        public static final int separator2=0x7f070003;
+        public static final int separator3=0x7f070005;
+        public static final int titulo_mensaje=0x7f07000a;
+        public static final int user_name=0x7f07000f;
     }
     public static final class layout {
         public static final int action_bar_main=0x7f030000;
@@ -64,26 +72,25 @@ public final class R {
         public static final int view_principal=0x7f030006;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int asunto=0x7f04000d;
-        public static final int cuerpo=0x7f04000e;
-        public static final int curso=0x7f040010;
-        public static final int descripcion_borrar=0x7f040014;
-        public static final int descripcion_busqueda=0x7f040008;
-        public static final int descripcion_compartir=0x7f040012;
-        public static final int descripcion_filtro=0x7f040009;
-        public static final int descripcion_guardar=0x7f040013;
-        public static final int descripcion_mensaje=0x7f04000a;
-        public static final int entrar=0x7f040005;
-        public static final int fecha=0x7f040011;
-        public static final int hello=0x7f040000;
-        public static final int institucional=0x7f040006;
-        public static final int materia=0x7f04000c;
-        public static final int nada=0x7f040007;
-        public static final int nombre_usuario=0x7f040003;
-        public static final int opcion=0x7f040002;
-        public static final int password=0x7f040004;
-        public static final int remitente=0x7f04000f;
-        public static final int titulo_mensaje=0x7f04000b;
+        public static final int app_name=0x7f060000;
+        public static final int asunto=0x7f06000c;
+        public static final int cuerpo=0x7f06000d;
+        public static final int curso=0x7f06000f;
+        public static final int descripcion_borrar=0x7f060013;
+        public static final int descripcion_busqueda=0x7f060001;
+        public static final int descripcion_compartir=0x7f060011;
+        public static final int descripcion_filtro=0x7f060002;
+        public static final int descripcion_guardar=0x7f060012;
+        public static final int descripcion_mensaje=0x7f060003;
+        public static final int fecha=0x7f060010;
+        public static final int institutional=0x7f060004;
+        public static final int login=0x7f060006;
+        public static final int materia=0x7f06000b;
+        public static final int nada=0x7f060007;
+        public static final int opcion=0x7f060005;
+        public static final int password=0x7f060008;
+        public static final int remitente=0x7f06000e;
+        public static final int titulo_mensaje=0x7f06000a;
+        public static final int user_name=0x7f060009;
     }
 }

@@ -41,5 +41,6 @@
         android:src="@drawable/opciones"
         android:layout_alignParentRight="true"
         android:background="#137c93"
-        android:contentDescription="@string/nada" />
+        android:contentDescription="@string/nada"
+        android:onClick="showQuickActionMenu" />
 </RelativeLayout>
