@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="actionbar_separator_height" >48sp</dimen>
+    <dimen name="actionbar_separator_width" >2sp</dimen>
+    <dimen name="login_text_size" >14.5sp</dimen>
+    <dimen name="login_edittext_height" >45sp</dimen>
+    <dimen name="login_edittext_width" >220sp</dimen>
+</resources>

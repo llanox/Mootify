@@ -8,39 +8,38 @@
     También tiene un botón llamado ident con al cual vamos a desplegar
     el QuickAction Menú.
 -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/item_list_background"
     android:layout_height="wrap_content"
-    android:padding="3sp"
-    android:background="#137c93" >
-
-    <TextView 
-        android:id="@+id/titulo_mensaje"
-        android:layout_width="250sp"
-        android:layout_height="21sp"
-        android:text="@string/titulo_mensaje"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="8sp" />
+    android:layout_width="fill_parent"
+    android:padding="3sp" >
 
     <TextView
-        android:id="@+id/materia"
+        android:id="@+id/message_title"
+        android:layout_height="21sp"
+        android:layout_marginLeft="8sp"
         android:layout_width="250sp"
+        android:text="@string/message_title"
+        android:textColor="@color/item_list_textcolor"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/subject"
+        android:layout_below="@id/message_title"
         android:layout_height="wrap_content"
-        android:text="@string/materia"
-        android:textSize="12sp"
-        android:textColor="#FFFFFF"
-        android:layout_below="@id/titulo_mensaje"
-        android:layout_marginLeft="8sp" />
+        android:layout_marginLeft="8sp"
+        android:layout_width="250sp"
+        android:text="@string/subject"
+        android:textColor="@color/item_list_textcolor"
+        android:textSize="12sp" />
 
     <ImageButton
-        android:id="@+id/ident"
-        android:layout_width="35sp"
-        android:layout_height="35sp"
-        android:src="@drawable/opciones"
+        android:background="@color/item_list_background"
+        android:contentDescription="@string/description_itemlist_image"
+        android:id="@+id/quickation_image"
         android:layout_alignParentRight="true"
-        android:background="#137c93"
-        android:contentDescription="@string/nada"
-        android:onClick="showQuickActionMenu" />
+        android:layout_height="35sp"
+        android:layout_width="35sp"
+        android:onClick="showQuickActionMenu"
+        android:src="@drawable/opciones" />
 </RelativeLayout>

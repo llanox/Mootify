@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
- Es el diseño encargado de mostrar los elementos 
- action_bar_mensaje y contenido_mensaje.
- Lo anterior compone el mensaje y las opciones 
- posibles sobre el mensaje actual.
+
+<!--
+    Es el diseño encargado de mostrar los elementos action_bar_mensaje
+    y contenido_mensaje. Lo anterior compone el mensaje y las opciones 
+    posibles sobre el mensaje actual.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="#ffffff" 
- >
-    <include 
-    android:id="@+id/Barra_accion_mensaje"
-    layout ="@layout/action_bar_message"
-    />
-    
-    <include 
-    android:id="@+id/Contenido_mensaje"
-    layout ="@layout/message_content"
-    />
-    
-    
+    android:layout_width="fill_parent"
+    android:orientation="vertical" >
 
+    <include
+        android:id="@+id/barra_accion_mensaje"
+        layout="@layout/action_bar_message" />
+
+    <include
+        android:id="@+id/contenido_mensaje"
+        layout="@layout/message_content" />
 </LinearLayout>

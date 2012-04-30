@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- 
+<!--
     Este diseño tiene la función de proporcionar al usuario
     las opciones para manipular los mensajes que actualmente 
     está viendo en la lista, las opciones son:
@@ -8,68 +8,68 @@
 -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#335b74" >
+    android:layout_width="match_parent"
+    android:background="@color/action_bar_background" >
 
     <ImageButton
-        android:id="@+id/busqueda"
         android:background="@drawable/busqueda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:contentDescription="@string/description_search"
+        android:id="@+id/search"
         android:layout_alignParentRight="true"
-        android:contentDescription="@string/descripcion_busqueda"
-        android:onClick="buscar" />
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:onClick="search" />
 
     <ImageView
+        android:contentDescription="@string/separator"
         android:id="@+id/separator1"
-        android:background="@drawable/separator"
-        android:layout_width="2sp"
-        android:layout_height="48sp"
-        android:layout_toLeftOf="@id/busqueda"
-        android:contentDescription="@string/nada" />
+        android:layout_height="@dimen/actionbar_separator_height"
+        android:layout_toLeftOf="@id/search"
+        android:layout_width="@dimen/actionbar_separator_width"
+        android:src="@drawable/separator" />
      
     <ImageButton
-        android:id="@+id/filtro"
         android:background="@drawable/filtro"
+        android:contentDescription="@string/description_filter"
+        android:id="@+id/filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/separator1"
-        android:contentDescription="@string/descripcion_filtro"
-        android:onClick="filtrar" />
+        android:onClick="filter" />
 
     <ImageView
+        android:contentDescription="@string/separator"
         android:id="@+id/separator2"
-        android:background="@drawable/separator"
-        android:layout_width="2sp"
-        android:layout_height="48sp"
-        android:layout_toLeftOf="@id/filtro"
-        android:contentDescription="@string/nada" />
+        android:layout_height="@dimen/actionbar_separator_height"
+        android:layout_toLeftOf="@id/filter"
+        android:layout_width="@dimen/actionbar_separator_width"
+        android:src="@drawable/separator" />
 
     <ImageButton
-        android:id="@+id/mensaje"
         android:background="@drawable/mensajes"
-        android:layout_width="wrap_content"
+        android:contentDescription="@string/description_message"
+        android:id="@+id/message"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/separator2"
-        android:contentDescription="@string/descripcion_mensaje"
-        android:onClick="mensajes" />
-
-    <ImageView
-        android:id="@+id/separator3"
-        android:background="@drawable/separator"
-        android:layout_width="2sp"
-        android:layout_height="48sp"
-        android:layout_toLeftOf="@id/mensaje"
-        android:contentDescription="@string/nada" />
-
-    <ImageView
-        android:id="@+id/Logo"
-        android:background="@drawable/logo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:onClick="message" />
+
+    <ImageView
+        android:contentDescription="@string/separator"
+        android:id="@+id/separator3"
+        android:layout_height="@dimen/actionbar_separator_height"
+        android:layout_toLeftOf="@id/message"
+        android:layout_width="@dimen/actionbar_separator_width"
+        android:src="@drawable/separator" />
+
+    <ImageView
+        android:contentDescription="@string/description_logo"
+        android:id="@+id/actionbar_logo"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="6sp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5sp"
-        android:contentDescription="@string/nada" />
+        android:layout_marginTop="6sp"
+        android:layout_width="wrap_content"
+        android:src="@drawable/logo" />
 </RelativeLayout>

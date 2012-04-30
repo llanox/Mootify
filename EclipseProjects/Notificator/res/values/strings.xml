@@ -9,21 +9,24 @@
                           amplia gama de aplicaciones prácticas y precisamente determinadas, proceso al cual se le ha denominado con el nombre de programación y al que lo realiza se le llama programador. La computadora, además 
                           de la rutina o programa informático, necesita de datos específicos (a estos datos, en conjunto, se les conoce como "Input" en inglés o de entrada) que deben ser suministrados, y que son requeridos al 
                           momento de la ejecución, para proporcionar el producto final del procesamiento de datos, que recibe el nombre de "output" o de salida.</string>
-    <string name="descripcion_borrar" >Borra el mensaje actual.</string>
-    <string name="descripcion_busqueda" >Realiza busquedas especificas.</string>
-    <string name="descripcion_compartir" >Comparte el mensaje en las diferentes redes sociales</string>
-    <string name="descripcion_filtro" >Muestra solo el tipo de mensajes de interes.</string>
-    <string name="descripcion_guardar" >Guarda los mensajes para leerlos mas tarde sin necesidad de conectarse.</string>
-    <string name="descripcion_mensaje" >Revisa nuevos mensajes de Ude@</string>
+    <string name="curso" >Informatica a distancia.</string>
+    <string name="description_delete" >Delete The Current Message.</string>
+    <string name="description_filter" >Show A Determined kind Of Message.</string>
+    <string name="description_itemlist_image" >Image Used To Show The QuickAction Menu.</string>
+    <string name="description_logo" >Ude@ Logo.</string>
+    <string name="description_message" >Check New Messages From Ude@</string>
+    <string name="description_save" >Save A Message Into The Device To Be Read Later.</string>
+    <string name="description_share" >Share A Message Using Different Social Networks.</string>
+    <string name="description_search" >A Simple A Refined Search.</string>
     <string name="fecha" >02/04/2012</string>
     <string name="institutional" >Ude@, Nuestra alma.</string>
     <string name="login" >Entrar</string>
-    <string name="materia" >InglesIII</string>
-    <string name="nada" />
+    <string name="message_title" >RESULTADOS DE LA PRUEBA SABER</string>
+    <string name="nada" ></string>
     <string name="opcion" >Opciones</string>
     <string name="password" >Password</string>
-    <string name="titulo_mensaje" >RESULTADOS DE LA PRUEBA SABER</string>
+    <string name="separator" >A Simple ActionBar Separator.</string>
     <string name="user_name" >Mares User</string>
     <string name="remitente" >Carlos Henao</string>
-    <string name="curso" >Informatica a distancia.</string>
+    <string name="subject" >Inglés III</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="divider_color" >#FFFFFFFF</color>
+    <color name="action_bar_background" >#335B74</color>
+    <color name="item_list_background" >#137C93</color>
+    <color name="item_list_textcolor" >#FFFFFF</color>
+    <color name="main_background" >#FFFFFF</color>
+    <color name="message_content_background" >#1C1C1C</color>
+</resources>
