@@ -3,6 +3,7 @@ package co.edu.udea.campusmovil.notificador.ui;
 import co.edu.udea.campusmovil.notificador.exceptions.MootifyException;
 import co.edu.udea.campusmovil.notificador.helpers.MessageHelper;
 import co.edu.udea.campusmovil.notificador.model.ListItem;
+import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
 import co.edu.udea.campusmovil.notificador.R;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ import android.view.View.OnClickListener;
 public class UITest extends Activity {
 
     private ListView list;
+    private QuickActionMenu quickAction;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,9 @@ public class UITest extends Activity {
 
     public void showQuickActionMenu(View view) {
         Toast.makeText(this, "Showing A QuickAction ...", Toast.LENGTH_LONG).show();
+        
+        this.quickAction = new QuickActionMenu(view);
+        this.quickAction.showQuickAction(0, 30);
     }
 
     // Clase temporal para probar el ListView.
