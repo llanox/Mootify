@@ -9,26 +9,16 @@
     lleva a la actividad UiTest.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/main_background"
+    android:background="@drawable/bg_blue_login"
     android:id="@+id/login_layout"
     android:layout_height="fill_parent"
     android:layout_width="fill_parent" >
 
-    <ImageView
-        android:contentDescription="@string/institutional"
-        android:id="@+id/logotipo"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90sp"
-        android:layout_width="wrap_content"
-        android:src="@drawable/udearroba" />
-
     <EditText 
         android:hint="@string/user_name"
         android:id="@+id/user_name"
-        android:layout_below="@id/logotipo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="7sp"
+        android:layout_marginTop="240sp"
+        android:layout_centerHorizontal="true"        
         android:layout_height="@dimen/login_edittext_height"
         android:layout_width="@dimen/login_edittext_width"
         android:textSize="@dimen/login_text_size" />

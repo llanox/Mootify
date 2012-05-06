@@ -56,30 +56,29 @@ public final class R {
     }
     public static final class id {
         public static final int Logo=0x7f09000a;
-        public static final int action_bar=0x7f090023;
+        public static final int action_bar=0x7f090022;
         public static final int actionbar_logo=0x7f090006;
-        public static final int asunto=0x7f090014;
-        public static final int barra_accion_mensaje=0x7f090021;
-        public static final int contenido_mensaje=0x7f090022;
-        public static final int cuerpo_mensaje=0x7f090018;
-        public static final int curso=0x7f090017;
+        public static final int asunto=0x7f090013;
+        public static final int barra_accion_mensaje=0x7f090020;
+        public static final int contenido_mensaje=0x7f090021;
+        public static final int cuerpo_mensaje=0x7f090017;
+        public static final int curso=0x7f090016;
         public static final int delete=0x7f090007;
-        public static final int elements_list=0x7f090024;
-        public static final int fecha=0x7f090016;
+        public static final int elements_list=0x7f090023;
+        public static final int fecha=0x7f090015;
         public static final int filter=0x7f090002;
-        public static final int fourButton=0x7f09001c;
-        public static final int fourLabel=0x7f090020;
-        public static final int header=0x7f090013;
-        public static final int login=0x7f090012;
+        public static final int fourButton=0x7f09001b;
+        public static final int fourLabel=0x7f09001f;
+        public static final int header=0x7f090012;
+        public static final int login=0x7f090011;
         public static final int login_layout=0x7f09000e;
-        public static final int logotipo=0x7f09000f;
         public static final int message=0x7f090004;
         public static final int message_title=0x7f09000b;
-        public static final int oneButton=0x7f090019;
-        public static final int oneLabel=0x7f09001d;
-        public static final int password=0x7f090011;
+        public static final int oneButton=0x7f090018;
+        public static final int oneLabel=0x7f09001c;
+        public static final int password=0x7f090010;
         public static final int quickation_image=0x7f09000d;
-        public static final int remitente=0x7f090015;
+        public static final int remitente=0x7f090014;
         public static final int save=0x7f090008;
         public static final int search=0x7f090000;
         public static final int separator1=0x7f090001;
@@ -87,11 +86,11 @@ public final class R {
         public static final int separator3=0x7f090005;
         public static final int share=0x7f090009;
         public static final int subject=0x7f09000c;
-        public static final int threeButton=0x7f09001b;
-        public static final int threeLabel=0x7f09001f;
-        public static final int twoButton=0x7f09001a;
-        public static final int twoLabel=0x7f09001e;
-        public static final int user_name=0x7f090010;
+        public static final int threeButton=0x7f09001a;
+        public static final int threeLabel=0x7f09001e;
+        public static final int twoButton=0x7f090019;
+        public static final int twoLabel=0x7f09001d;
+        public static final int user_name=0x7f09000f;
     }
     public static final class layout {
         public static final int action_bar_main=0x7f030000;
