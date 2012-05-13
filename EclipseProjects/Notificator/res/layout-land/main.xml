@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Este diseño está encargado de mostrar dos cuadros 
+    de texto donde el usuario teclea su contraseña 
+    para poder acceder a la aplicación, por el momento
+    no está implementado el login. Pueden seguir a la 
+    aplicación dando click en el botón “Entrar”, nos
+    lleva a la actividad UiTest.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_blue_login"
+    android:id="@+id/login_layout"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent" >
+
+    <EditText 
+        android:hint="@string/user_name"
+        android:id="@+id/user_name"
+        android:layout_marginTop="130sp"
+        android:layout_centerHorizontal="true"        
+        android:layout_height="@dimen/login_edittext_height"
+        android:layout_width="@dimen/login_edittext_width"
+        android:textSize="@dimen/login_text_size" />
+
+    <EditText
+        android:hint="@string/password"
+        android:id="@+id/password"
+        android:inputType="textPassword"
+        android:layout_below="@id/user_name"
+        android:layout_centerHorizontal="true"
+        android:layout_height="@dimen/login_edittext_height"
+        android:layout_width="@dimen/login_edittext_width"
+        android:textSize="@dimen/login_text_size" />
+
+    <Button
+        android:id="@+id/login"
+        android:width="100sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="login"
+        android:text="@string/login" />
+</RelativeLayout>

@@ -11,7 +11,7 @@
     android:background="@drawable/fondoactionbar" >
 
     <ImageButton
-        android:background="@drawable/borrar"
+        android:background="@drawable/animation_discard_button"
         android:contentDescription="@string/description_delete"
         android:id="@+id/delete"
         android:layout_alignParentRight="true"
@@ -28,7 +28,7 @@
         android:src="@drawable/separator" />
 
     <ImageButton
-        android:background="@drawable/guardar"
+        android:background="@drawable/animation_save_button"
         android:contentDescription="@string/description_save"
         android:id="@+id/save"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         android:src="@drawable/separator" />
 
     <ImageButton
-        android:background="@drawable/compartir"
+        android:background="@drawable/animation_share_button"
         android:contentDescription="@string/description_share"
         android:id="@+id/share"
         android:layout_height="wrap_content"
