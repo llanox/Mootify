@@ -9,7 +9,7 @@
                           amplia gama de aplicaciones prácticas y precisamente determinadas, proceso al cual se le ha denominado con el nombre de programación y al que lo realiza se le llama programador. La computadora, además 
                           de la rutina o programa informático, necesita de datos específicos (a estos datos, en conjunto, se les conoce como "Input" en inglés o de entrada) que deben ser suministrados, y que son requeridos al 
                           momento de la ejecución, para proporcionar el producto final del procesamiento de datos, que recibe el nombre de "output" o de salida.</string>
-    <string name="curso" >Informatica a distancia.</string>
+    <string name="curso" >INFORMATICA A DISTANCIA.</string>
     <string name="description_delete" >Delete The Current Message.</string>
     <string name="description_filter" >Show A Determined kind Of Message.</string>
     <string name="description_itemlist_image" >Image Used To Show The QuickAction Menu.</string>
