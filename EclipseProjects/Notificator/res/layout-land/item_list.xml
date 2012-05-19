@@ -9,7 +9,7 @@
     el QuickAction Menú.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/fondoitemf"
+    android:background="@drawable/itemlist_background"
     android:layout_height="wrap_content"
     android:layout_width="fill_parent"
     android:padding="3sp" >

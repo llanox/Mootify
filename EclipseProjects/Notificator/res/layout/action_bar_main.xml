@@ -10,7 +10,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:background="@drawable/fondoactionbar" >
+    android:background="@drawable/actionbar_background"
+    android:paddingBottom="1sp"
+    android:paddingTop="1sp" 
+ >
 
     <ImageButton
         android:background="@drawable/animation_search_button"
@@ -67,9 +70,7 @@
         android:contentDescription="@string/description_logo"
         android:id="@+id/actionbar_logo"
         android:layout_alignParentLeft="true"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:layout_marginTop="6sp"
-        android:layout_width="wrap_content"
-        android:src="@drawable/logo" />
+        android:layout_height="wrap_content"                
+        android:layout_width="wrap_content"        
+        android:src="@drawable/actionbar_logo" />
 </RelativeLayout>
