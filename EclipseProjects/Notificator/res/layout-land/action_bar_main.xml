@@ -8,12 +8,11 @@
 -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
     android:background="@drawable/actionbar_background"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
     android:paddingBottom="1sp"
-    android:paddingTop="1sp" 
- >
+    android:paddingTop="1sp" >
 
     <ImageButton
         android:background="@drawable/animation_search_button"
@@ -21,8 +20,8 @@
         android:id="@+id/search"
         android:layout_alignParentRight="true"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"       
-        android:onClick="search" />
+        android:layout_width="wrap_content"
+        android:onClick="onSearch" />
 
     <ImageView
         android:contentDescription="@string/separator"
@@ -39,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/separator1"
-        android:onClick="filter" />
+        android:onClick="onFilter" />
 
     <ImageView
         android:contentDescription="@string/separator"
@@ -56,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/separator2"
         android:layout_width="wrap_content"
-        android:onClick="message" />
+        android:onClick="onMessage" />
 
     <ImageView
         android:contentDescription="@string/separator"
@@ -70,7 +69,7 @@
         android:contentDescription="@string/description_logo"
         android:id="@+id/actionbar_logo"
         android:layout_alignParentLeft="true"
-        android:layout_height="wrap_content"                
-        android:layout_width="wrap_content"        
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/actionbar_logo" />
 </RelativeLayout>

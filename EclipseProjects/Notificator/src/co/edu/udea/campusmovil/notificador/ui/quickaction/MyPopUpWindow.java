@@ -99,7 +99,7 @@ public class MyPopUpWindow {
 
         Rect anchorRect = new Rect(location[0], location[1], location[0] + this.anchor.getWidth(), location[1] + this.anchor.getHeight());
 
-        this.root.measure(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        this.root.measure(WindowManager.LayoutParams.FILL_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
         int rootWidth = this.root.getMeasuredWidth();
         int rootHeight = this.root.getMeasuredHeight();
@@ -107,7 +107,8 @@ public class MyPopUpWindow {
         int screenWidth = this.wManager.getDefaultDisplay().getWidth();
         //int screenHeight = this.wManager.getDefaultDisplay().getHeight();
 
-        int xPos = ((screenWidth - rootWidth) / 2) + xOffSet;
+        //int xPos = ((screenWidth - rootWidth) / 2) + xOffSet;
+        int xPos = screenWidth;
         int yPos = anchorRect.top - rootHeight + yOffSet;
 
         if (rootHeight > anchorRect.top) {

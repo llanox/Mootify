@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 import android.view.*;
 import android.view.View.OnClickListener;
 
@@ -32,7 +33,7 @@ public class UITest extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.view_principal);
+        this.setContentView(R.layout.principal_view);
 
         list = (ListView) findViewById(R.id.elements_list);
         List<ListItem> elementos = new ArrayList<ListItem>();
@@ -60,17 +61,17 @@ public class UITest extends Activity {
     }
 
     // Método para la opcion filtrar información.
-    public void filter(View view) {
+    public void onFilter(View view) {
         Toast.makeText(this,"Filtering Content ..." , Toast.LENGTH_SHORT).show();
     }
 
     // Método para la opción leer mensajes.
-    public void message(View view) {
+    public void onMessage(View view) {
         Toast.makeText(this,"Loading Messages ..." , Toast.LENGTH_SHORT).show();
     }
 
     // Método para la opcion buscar mensajes.
-    public void search(View view) {
+    public void onSearch(View view) {
         Toast.makeText(this,"Seaching Content ..." , Toast.LENGTH_SHORT).show();
     }
 
@@ -79,6 +80,16 @@ public class UITest extends Activity {
         
         this.quickAction = new QuickActionMenu(view);
         this.quickAction.showQuickAction(0, 30);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStart();
+
+        Log.d("UITest", "Entrando Al Stop...");
+        if (this.quickAction != null) {
+            this.quickAction.dismiss();
+        }
     }
 
     // Clase temporal para probar el ListView.

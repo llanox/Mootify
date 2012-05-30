@@ -13,7 +13,7 @@
     <string name="description_delete" >Delete The Current Message.</string>
     <string name="description_filter" >Show A Determined kind Of Message.</string>
     <string name="description_itemlist_image" >Image Used To Show The QuickAction Menu.</string>
-    <string name="description_logo" >Ude@ Logo.</string>
+    <string name="description_logo" >Ude@ Logo</string>
     <string name="description_message" >Check New Messages From Ude@</string>
     <string name="description_save" >Save A Message Into The Device To Be Read Later.</string>
     <string name="description_share" >Share A Message Using Different Social Networks.</string>

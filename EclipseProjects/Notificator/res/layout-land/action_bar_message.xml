@@ -6,12 +6,11 @@
     leyendo, las opciones son: compartir, guardar y borrar..
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/actionbar_background"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:background="@drawable/actionbar_background"
     android:paddingBottom="1sp"
-    android:paddingTop="1sp" 
- >
+    android:paddingTop="1sp" >
 
     <ImageButton
         android:background="@drawable/animation_discard_button"
@@ -20,7 +19,7 @@
         android:layout_alignParentRight="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:onClick="delete" />
+        android:onClick="onDelete" />
 
     <ImageView
         android:contentDescription="@string/separator"
@@ -37,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/separator1"
         android:layout_width="wrap_content"
-        android:onClick="save" />
+        android:onClick="onSave" />
 
     <ImageView
         android:contentDescription="@string/separator"
@@ -54,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_toLeftOf="@id/separator2"
-        android:onClick="share" />
+        android:onClick="onShare" />
 
     <ImageView
         android:contentDescription="@string/separator"
@@ -68,7 +67,7 @@
         android:background="@drawable/actionbar_logo"
         android:contentDescription="@string/description_logo"
         android:id="@+id/Logo"
-        android:layout_alignParentLeft="true"        
+        android:layout_alignParentLeft="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 </RelativeLayout>

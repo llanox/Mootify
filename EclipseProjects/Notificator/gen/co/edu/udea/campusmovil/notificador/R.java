@@ -27,9 +27,10 @@ public final class R {
     public static final class dimen {
         public static final int actionbar_separator_height=0x7f060000;
         public static final int actionbar_separator_width=0x7f060001;
+        public static final int login_button_width=0x7f060002;
         public static final int login_edittext_height=0x7f060003;
         public static final int login_edittext_width=0x7f060004;
-        public static final int login_text_size=0x7f060002;
+        public static final int login_text_size=0x7f060005;
     }
     public static final class drawable {
         public static final int actionbar_background=0x7f020000;
@@ -40,8 +41,8 @@ public final class R {
         public static final int animation_save_button=0x7f020005;
         public static final int animation_search_button=0x7f020006;
         public static final int animation_share_button=0x7f020007;
-        public static final int background=0x7f020008;
-        public static final int background_landscape=0x7f020009;
+        public static final int background_landscape=0x7f020008;
+        public static final int background_portrait=0x7f020009;
         public static final int discard=0x7f02000a;
         public static final int discard_selected=0x7f02000b;
         public static final int filter=0x7f02000c;
@@ -63,15 +64,15 @@ public final class R {
     }
     public static final class id {
         public static final int Logo=0x7f09000a;
-        public static final int action_bar=0x7f090023;
+        public static final int action_bar=0x7f090021;
         public static final int actionbar_logo=0x7f090006;
         public static final int asunto=0x7f090014;
-        public static final int barra_accion_mensaje=0x7f090021;
-        public static final int contenido_mensaje=0x7f090022;
+        public static final int barra_accion_mensaje=0x7f090023;
+        public static final int contenido_mensaje=0x7f090024;
         public static final int cuerpo_mensaje=0x7f090018;
         public static final int curso=0x7f090017;
         public static final int delete=0x7f090007;
-        public static final int elements_list=0x7f090024;
+        public static final int elements_list=0x7f090022;
         public static final int fecha=0x7f090016;
         public static final int filter=0x7f090002;
         public static final int fourButton=0x7f09001c;
@@ -107,8 +108,8 @@ public final class R {
         public static final int main=0x7f030003;
         public static final int message_content=0x7f030004;
         public static final int popup_layout=0x7f030005;
-        public static final int view_menssage=0x7f030006;
-        public static final int view_principal=0x7f030007;
+        public static final int principal_view=0x7f030006;
+        public static final int view_menssage=0x7f030007;
     }
     public static final class string {
         public static final int app_name=0x7f070000;

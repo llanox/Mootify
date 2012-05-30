@@ -7,16 +7,16 @@
     action_bar_principal.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent" >
 
     <include
         android:id="@+id/action_bar"
         layout="@layout/action_bar_main" />
-    
+
     <RelativeLayout
         android:layout_below="@id/action_bar"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_width="fill_parent" >
 
     <ListView
@@ -24,7 +24,7 @@
         android:dividerHeight="1sp"
         android:drawSelectorOnTop="false"
         android:id="@+id/elements_list"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_width="fill_parent" />
     </RelativeLayout>
 </RelativeLayout>

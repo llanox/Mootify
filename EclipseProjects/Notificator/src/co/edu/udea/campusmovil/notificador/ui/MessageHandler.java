@@ -14,15 +14,15 @@ public class MessageHandler extends Activity {
         this.setContentView(R.layout.view_menssage);
     }
 
-    public void share(View view) {
+    public void onShare(View view) {
         Toast.makeText(this,"Sharing Content ..." , Toast.LENGTH_SHORT).show();
     }
 
-    public void save(View view) {
+    public void onSave(View view) {
         Toast.makeText(this,"Saving Content ..." , Toast.LENGTH_SHORT).show();
     }
 
-    public void delete(View view) {
+    public void onDelete(View view) {
         Toast.makeText(this,"Deleting Content ..." , Toast.LENGTH_SHORT).show();
     }
 }

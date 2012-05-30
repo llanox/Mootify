@@ -26,7 +26,7 @@ public class AppNotificadorActivity extends Activity {
     }
 
     //Pasamos de la actividad AppNotificador a la actividad UiTest
-    public void login(View view) {
+    public void onLogin(View view) {
         Intent intent = new Intent(AppNotificadorActivity.this, UITest.class);
         this.startActivity(intent);
     }

@@ -1,65 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:background="@android:drawable/dialog_frame"
     android:layout_height="wrap_content"
-    android:background="@android:drawable/alert_light_frame" >
+    android:layout_width="fill_parent" >
 
-    <TableRow >
+    <TableRow
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_height="match_parent"
+        android:layout_width="fill_parent" >
         <ImageButton
             android:id="@+id/oneButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:src="@drawable/ic_launcher" >
         </ImageButton>
         <ImageButton
             android:id="@+id/twoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:src="@drawable/ic_launcher" >
         </ImageButton>
         <ImageButton
             android:id="@+id/threeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:src="@drawable/ic_launcher" >
         </ImageButton>
         <ImageButton
             android:id="@+id/fourButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:src="@drawable/ic_launcher" >
         </ImageButton>
     </TableRow>
 
-    <TableRow >
+    <TableRow
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_height="match_parent"
+        android:layout_width="fill_parent" >
         <TextView
             android:id="@+id/oneLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:text="label ONE"
-            android:textColor="#000000" >
+            android:textColor="#FFFFFFFF" >
         </TextView>
         <TextView
             android:id="@+id/twoLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:text="label TWO"
-            android:textColor="#000000" >
+            android:textColor="#FFFFFFFF" >
         </TextView>
         <TextView
             android:id="@+id/threeLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:text="label TRHEE"
-            android:textColor="#000000" >
+            android:textColor="#FFFFFFFF" >
         </TextView>
         <TextView
             android:id="@+id/fourLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:text="label FOUR"
-            android:textColor="#000000" >
+            android:textColor="#FFFFFFFF" >
         </TextView>
     </TableRow>
 </TableLayout>
