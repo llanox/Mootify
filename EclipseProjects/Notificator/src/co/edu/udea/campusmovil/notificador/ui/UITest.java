@@ -28,6 +28,9 @@ import android.view.View.OnClickListener;
 
 public class UITest extends Activity {
 
+    public static String DATABASE_NAME = "Mootify";
+    public static int DATABASE_VERSION = 1;
+
     private ListView list;
     private QuickActionMenu quickAction;
 
@@ -79,7 +82,7 @@ public class UITest extends Activity {
         Toast.makeText(this, "Showing A QuickAction ...", Toast.LENGTH_LONG).show();
         
         this.quickAction = new QuickActionMenu(view);
-        this.quickAction.showQuickAction(0, 30);
+        this.quickAction.showQuickAction(10, 0);
     }
 
     @Override

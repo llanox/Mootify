@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 public class MyPopUpWindow {
 
@@ -105,11 +107,10 @@ public class MyPopUpWindow {
         int rootHeight = this.root.getMeasuredHeight();
 
         int screenWidth = this.wManager.getDefaultDisplay().getWidth();
-        //int screenHeight = this.wManager.getDefaultDisplay().getHeight();
+        int screenHeight = this.wManager.getDefaultDisplay().getHeight();
 
-        //int xPos = ((screenWidth - rootWidth) / 2) + xOffSet;
-        int xPos = screenWidth;
-        int yPos = anchorRect.top - rootHeight + yOffSet;
+        int xPos = screenWidth - rootWidth + xOffSet;
+        int yPos = location[1] + (this.anchor.getHeight() / 2) + yOffSet;
 
         if (rootHeight > anchorRect.top) {
             yPos = anchorRect.bottom + yOffSet;

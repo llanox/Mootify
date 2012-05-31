@@ -1,9 +1,9 @@
 package co.edu.udea.campusmovil.notificador.model;
 
 /*
- * Esta clase es la encargada de manejar los datos que 
+ * Esta clase es la encargada de manejar los datos que
  * tiene el mensaje: título, materia, fecha y remitente.
- * A través de esta clase y de sus métodos accesores podemos 
+ * A través de esta clase y de sus métodos accesores podemos
  * obtener cada uno de los datos del mensaje.
  */
 
@@ -20,7 +20,7 @@ public class ListItem {
        this.setSender(sender);
        this.setSubject(subject);
        this.setTitle(title);
-	}
+    }
 
     public String getDate() {
 
