@@ -1,7 +1,9 @@
 package co.edu.udea.campusmovil.notificador.ui;
 
 import co.edu.udea.campusmovil.notificador.exceptions.MootifyException;
+import co.edu.udea.campusmovil.notificador.helpers.GenericDAO;
 import co.edu.udea.campusmovil.notificador.helpers.MessageHelper;
+import co.edu.udea.campusmovil.notificador.model.Course;
 import co.edu.udea.campusmovil.notificador.model.ListItem;
 import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
 import co.edu.udea.campusmovil.notificador.R;
@@ -49,6 +51,8 @@ public class UITest extends Activity {
 
         Adaptador ad = new Adaptador(this, elementos);
         list.setAdapter(ad);
+        
+        GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
     }
 
     // Create an anonymous implementation of OnClickListener.

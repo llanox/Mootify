@@ -16,7 +16,7 @@ public class QuickActionMenu extends MyPopUpWindow implements OnClickListener {
         super(anchor);
     }
 
-    @Override
+
     protected void onCreate() {
         LayoutInflater layout = (LayoutInflater) this.anchor.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ViewGroup root = (ViewGroup) layout.inflate(R.layout.popup_layout, null);

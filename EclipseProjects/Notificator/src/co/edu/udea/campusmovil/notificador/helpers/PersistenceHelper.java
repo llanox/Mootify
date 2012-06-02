@@ -16,4 +16,5 @@ public class PersistenceHelper {
 		return null;
 	}
 
+	// Duda con el STATIC
 }
