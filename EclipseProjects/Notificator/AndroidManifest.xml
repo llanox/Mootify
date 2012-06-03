@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.edu.udea.campusmovil.notificador"
     android:installLocation="preferExternal"
@@ -7,7 +6,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8" 
+        android:minSdkVersion="8"
+        android:maxSdkVersion="10"
         android:targetSdkVersion="8" />
 
     <application
@@ -20,14 +20,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".model.ListItem"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name=".model.Message"
-            android:label="@string/app_name" >
         </activity>
         <activity
             android:name=".ui.UITest"

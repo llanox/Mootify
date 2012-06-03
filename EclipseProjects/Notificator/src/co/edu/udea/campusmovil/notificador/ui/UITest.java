@@ -4,7 +4,9 @@ import co.edu.udea.campusmovil.notificador.exceptions.MootifyException;
 import co.edu.udea.campusmovil.notificador.helpers.GenericDAO;
 import co.edu.udea.campusmovil.notificador.helpers.MessageHelper;
 import co.edu.udea.campusmovil.notificador.model.Course;
+import co.edu.udea.campusmovil.notificador.model.Forum;
 import co.edu.udea.campusmovil.notificador.model.ListItem;
+import co.edu.udea.campusmovil.notificador.model.Message;
 import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
 import co.edu.udea.campusmovil.notificador.R;
 
@@ -33,6 +35,7 @@ public class UITest extends Activity {
     public static String DATABASE_NAME = "Mootify";
     public static int DATABASE_VERSION = 1;
 
+    private GenericDAO dao;
     private ListView list;
     private QuickActionMenu quickAction;
 
@@ -52,7 +55,18 @@ public class UITest extends Activity {
         Adaptador ad = new Adaptador(this, elementos);
         list.setAdapter(ad);
         
-        GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (this.dao != null) {
+            this.dao.close();
+        }
     }
 
     // Create an anonymous implementation of OnClickListener.
