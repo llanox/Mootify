@@ -11,8 +11,9 @@ public class Message {
         + Message.COLS[2] + " text not null, "
         + Message.COLS[3] + " text not null, "
         + Message.COLS[4] + " text not null, "
+        + Message.COLS[5] + " text not null, "
         + "UNIQUE (" + Message.COLS[1] + "), "
-        + "FOREIGN KEY (forum_id) REFERENCES forums(id));";
+        + "FOREIGN KEY (" + Message.COLS[5] + ") REFERENCES forums(" + Message.COLS[1] + "));";
     //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private int consecutiveId;

@@ -32,7 +32,15 @@ public class GenericDAO extends SQLiteOpenHelper {
 
             try {
                 Log.i(GenericDAO.LOG, "Creating The DataBase: " + dataBaseName);
-                GenericDAO.instance.onCreate(instance.setUpDataBase());
+                GenericDAO.instance.onCreate(GenericDAO.instance.setUpDataBase());
+            } catch (SQLiteException e) {
+                Log.e(GenericDAO.LOG, e.getMessage());
+            }
+        } else {
+            try {
+                Log.i(GenericDAO.LOG, "Creating The Data Base: " + dataBaseName);
+                //GenericDAO.instance.sql = sql;
+                GenericDAO.instance.onCreate(GenericDAO.instance.setUpDataBase(), sql);
             } catch (SQLiteException e) {
                 Log.e(GenericDAO.LOG, e.getMessage());
             }
@@ -60,6 +68,21 @@ public class GenericDAO extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.i(GenericDAO.LOG, "Trying To Create The Table: " + this.tableName);
         db.execSQL(this.sql);
+    }
+
+    public void onCreate(SQLiteDatabase db, String sql) {
+        Log.i(GenericDAO.LOG, "Trying To Create The Table: " + this.tableName);
+        this.sql = sql;
+        db.execSQL(this.sql);
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+
+        if (!db.isReadOnly()) {
+            db.execSQL("PRAGMA foreign_keys=ON;");
+        }
     }
 
     @Override
