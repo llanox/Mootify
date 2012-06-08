@@ -12,7 +12,7 @@ public class Forum {
         + Forum.COLS[3] + " text not null, "
         + Forum.COLS[4] + " text not null, "
         + "UNIQUE (" + Forum.COLS[1] + "), "
-        + "FOREIGN KEY (" + Forum.COLS[4] + ") REFERENCES courses(" + Forum.COLS[1] + "));";
+        + "FOREIGN KEY (" + Forum.COLS[4] + ") REFERENCES courses(" + Course.COLS[1] + "));";
 
     private int consecutive_id;
     private String id;

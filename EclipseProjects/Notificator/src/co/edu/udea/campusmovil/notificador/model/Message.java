@@ -13,18 +13,20 @@ public class Message {
         + Message.COLS[4] + " text not null, "
         + Message.COLS[5] + " text not null, "
         + "UNIQUE (" + Message.COLS[1] + "), "
-        + "FOREIGN KEY (" + Message.COLS[5] + ") REFERENCES forums(" + Message.COLS[1] + "));";
+        + "FOREIGN KEY (" + Message.COLS[5] + ") REFERENCES forums(" + Forum.COLS[1] + "));";
     //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private int consecutiveId;
     private String id;
     private String name;
+    private String date;
     private String content;
     private String forumId;
 
-    public Message(String id, String name, String content, String forumId) {
+    public Message(String id, String name, String date, String content, String forumId) {
         this.id = id;
         this.name = name;
+        this.date = date;
         this.content = content;
         this.forumId = forumId;
     }
@@ -74,4 +76,12 @@ public class Message {
         this.name = name;
     }
 
+    public String getDate() {
+
+        return date;
+    }
+
+    public void setDate(String date) {
+       this.date = date;
+    }
 }
