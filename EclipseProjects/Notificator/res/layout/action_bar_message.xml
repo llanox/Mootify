@@ -10,49 +10,15 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:paddingBottom="1sp"
-    android:paddingTop="1sp" >
-
-    <ImageButton
-        android:background="@drawable/animation_discard_button"
-        android:contentDescription="@string/description_delete"
-        android:id="@+id/delete"
-        android:layout_alignParentRight="true"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:onClick="onDelete" />
-
-    <ImageView
-        android:contentDescription="@string/separator"
-        android:id="@+id/separator1"
-        android:layout_height="@dimen/actionbar_separator_height"
-        android:layout_toLeftOf="@id/delete"
-        android:layout_width="@dimen/actionbar_separator_width"
-        android:src="@drawable/separator" />
-
-    <ImageButton
-        android:background="@drawable/animation_save_button"
-        android:contentDescription="@string/description_save"
-        android:id="@+id/save"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/separator1"
-        android:layout_width="wrap_content"
-        android:onClick="onSave" />
-
-    <ImageView
-        android:contentDescription="@string/separator"
-        android:id="@+id/separator2"
-        android:layout_height="@dimen/actionbar_separator_height"
-        android:layout_toLeftOf="@id/save"
-        android:layout_width="@dimen/actionbar_separator_width"
-        android:src="@drawable/separator" />
+    android:paddingTop="1sp" >    
 
     <ImageButton
         android:background="@drawable/animation_share_button"
         android:contentDescription="@string/description_share"
+        android:layout_alignParentRight="true"
         android:id="@+id/share"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_toLeftOf="@id/separator2"
+        android:layout_width="wrap_content"        
         android:onClick="onShare" />
 
     <ImageView

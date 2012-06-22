@@ -29,31 +29,14 @@
         android:layout_height="@dimen/actionbar_separator_height"
         android:layout_toLeftOf="@id/search"
         android:layout_width="@dimen/actionbar_separator_width"
-        android:src="@drawable/separator" />
-     
+        android:src="@drawable/separator" />   
+        
     <ImageButton
-        android:background="@drawable/animation_filter_button"
-        android:contentDescription="@string/description_filter"
-        android:id="@+id/filter"
-        android:layout_width="wrap_content"
+        android:background="@drawable/animation_refresh_button"
+        android:contentDescription="@string/description_message"
+        android:id="@+id/refresh"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/separator1"
-        android:onClick="onFilter" />
-
-    <ImageView
-        android:contentDescription="@string/separator"
-        android:id="@+id/separator2"
-        android:layout_height="@dimen/actionbar_separator_height"
-        android:layout_toLeftOf="@id/filter"
-        android:layout_width="@dimen/actionbar_separator_width"
-        android:src="@drawable/separator" />
-
-    <ImageButton
-        android:background="@drawable/animation_message_button"
-        android:contentDescription="@string/description_message"
-        android:id="@+id/message"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/separator2"
         android:layout_width="wrap_content"
         android:onClick="onMessage" />
 
@@ -61,7 +44,7 @@
         android:contentDescription="@string/separator"
         android:id="@+id/separator3"
         android:layout_height="@dimen/actionbar_separator_height"
-        android:layout_toLeftOf="@id/message"
+        android:layout_toLeftOf="@id/refresh"
         android:layout_width="@dimen/actionbar_separator_width"
         android:src="@drawable/separator" />
 
