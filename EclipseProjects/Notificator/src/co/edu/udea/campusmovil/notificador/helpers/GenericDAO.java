@@ -1,7 +1,11 @@
 package co.edu.udea.campusmovil.notificador.helpers;
 
+import co.edu.udea.campusmovil.notificador.model.Course;
+import co.edu.udea.campusmovil.notificador.model.Forum;
+import co.edu.udea.campusmovil.notificador.model.Message;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -88,5 +92,89 @@ public class GenericDAO extends SQLiteOpenHelper {
     public long insert(String tableName, ContentValues values) {
 
         return (this.db.insert(tableName, null, values));
+    }
+
+    public Cursor getAllFromTable(String tableName, String[] columns) {
+
+        return (this.db.query(tableName, columns, null, null, null, null, null));
+    }
+
+    /*
+     * isUdeAID - Es para identificar sí el id enviado como parámetro es el Ude@ o el autoincrement.
+     * id - Es el id de Ude@.
+     */
+    public Cursor getOneFromTable(boolean isUdeAID, String tableName, String[] columns, String id) {
+        Cursor cursor = null;
+        if (isUdeAID) {
+            cursor = this.db.query(true, tableName, columns, columns[1] + "=" + id, null, null, null, null, null);
+        } else {
+            cursor = this.db.query(true, tableName, columns, columns[0] + "=" + id, null, null, null, null, null);
+        }
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
+    public Cursor getMessagesByForum(String idForum) {
+        Cursor cursor = this.db.query(true, Message.DATABASE_TABLE, Message.COLS, Message.COLS[5] + "=" + idForum, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
+    public Cursor getForumsByCourse(String idCourse) {
+        Cursor cursor = this.db.query(true, Forum.DATABASE_TABLE, Forum.COLS, Forum.COLS[4] + "=" + idCourse, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
+    public int deleteCourse(String id) {
+        int counter = 0;
+        Cursor cursor = this.getForumsByCourse(id);
+        cursor.moveToFirst();
+        int indexId = cursor.getColumnIndex(Forum.COLS[1]);
+
+        for (int k = 0; k < cursor.getCount(); k++) {
+            counter = counter + this.deleteForum(cursor.getString(indexId));
+            cursor.moveToNext();
+        }
+        this.delete(Course.DATABASE_TABLE, Course.COLS, id);
+
+        return counter;
+    }
+
+    public int deleteForum(String id) {
+
+        int counter = 0;
+        Cursor cursor = this.getMessagesByForum(id);
+        cursor.moveToFirst();
+        int indexId = cursor.getColumnIndex(Message.COLS[1]);
+
+        for (int k = 0; k < cursor.getCount(); k++) {
+            counter = counter + this.deleteMessage(cursor.getString(indexId));
+            cursor.moveToNext();
+        }
+        this.delete(Forum.DATABASE_TABLE, Forum.COLS, id);
+
+        return counter;
+    }
+
+    
+    public int deleteMessage(String id) {
+
+        return (this.delete(Message.DATABASE_TABLE, Message.COLS, id));
+    }
+
+    public int delete(String tableName, String[] columns, String id) {
+
+        return (this.db.delete(tableName, columns[1] + "=" + id, null));
     }
 }

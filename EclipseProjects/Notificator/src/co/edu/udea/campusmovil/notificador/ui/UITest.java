@@ -88,43 +88,56 @@ public class UITest extends Activity {
     }
 
     // Método para la opción leer mensajes.
-    public void onMessage(View view) {
+    public void onRefresh(View view) {
         Toast.makeText(this,"Loading Messages ..." , Toast.LENGTH_SHORT).show();
 
+        int temp1 = 0, temp2 = 0, temp3 = 0;
         if (this.dao != null) {
-            Course c = new Course("INGEMPLEADOS", "Ingles I - Empleados");
-            Forum f = new Forum("9219", "Novedades y anuncios", "news", "INGEMPLEADOS");
-            Message m = new Message("37037", "CHAT DEL DIA MIERCOLES 9 DE MARZO DE 2010", "2011-03-09 11:33:32",
-                "My dear students:\nI will be in the chat today Wednesday from" +
-                " 4:30 to 5:30 if you have something to share. Have a nice day, Olga Gil .\n\nComo ya se" +
-                " termina el capitulo 1 esta semana, al principio de la otra semana enviar\u00e8 feedback" +
-                " a todos los que han enviado las tareas.\nRecuerden que el caso de estudio para la Unidad" +
-                " 1, es conseguir un amgio a trav\u00e9s de www.italki.com y solicitarle todos los datos\nPor" +
-                " favoro ingresen a www.skpe.com abran una cuenta y tan pronto la tengan me envian su password" +
-                " para yo agregarlos porque la semana entrante ustedes deber\u00e0n estar presentando el caso" +
-                " de estudio que\ndebe ser comunicarse conmigo por skpe, saludarme en ingl\u00e9s hacer su" +
-                " presentaci\u00f2n personal y la de la persona que conoci\u00f2 por skype.\nEspero la" +
-                " participaci\u00f2n de todos. Feliz dia, Olga Gil \n", "9219");
-
-            this.onSave(c, f, m);
+            for (int c = 0; c < 5; c++) {
+                Course course = new Course("" + temp1, "Course #" + (temp1 + 1));
+                this.onSaveCourse(course);
+                for (int f = 0; f < 10; f++) {
+                    Forum forum = new Forum("" + temp2, "Forum #" + (temp1 + 1) * (temp2 + 1),
+                        "Forum Type #" + (temp1 * temp2), "" + temp1);
+                    this.onSaveForum(forum);
+                    for (int m = 0; m < 20; m++) {
+                        Message message = new Message("" + temp3,
+                            "Message #" + (temp1 + 1) * (temp1 + 2) * (temp3 + 1),
+                            "Date: " + (c + 1) * (f + 1) * (m + 1), "This is the message ... " + (temp1 + 1) * (temp1 + 2) * (temp3 + 1),
+                            "" + temp2);
+                        this.onSaveMessage(message);
+                        temp3++;
+                    }
+                    temp2++;
+                }
+                temp1++;
+            }
         }
     }
 
-    private void onSave(Course course, Forum forum, Message message) {
-        if (this.dao != null) {
+    private void onSaveCourse(Course course) {
+         if (this.dao != null) {
             ContentValues values = new ContentValues();
             values.put(Course.COLS[1], course.getId());
             values.put(Course.COLS[2], course.getName());
             this.dao.insert(Course.DATABASE_TABLE, values);
+         }
+    }
 
-            values = new ContentValues();
+    private void onSaveForum(Forum forum) {
+        if (this.dao != null) {
+            ContentValues values = new ContentValues();
             values.put(Forum.COLS[1], forum.getId());
             values.put(Forum.COLS[2], forum.getName());
             values.put(Forum.COLS[3], forum.getType());
             values.put(Forum.COLS[4], forum.getCourseId());			// course.getId();
             this.dao.insert(Forum.DATABASE_TABLE, values);
+        }
+    }
 
-            values = new ContentValues();
+    private void onSaveMessage(Message message) {
+        if (this.dao != null) {
+            ContentValues values = new ContentValues();
             values.put(Message.COLS[1], message.getId());
             values.put(Message.COLS[2], message.getName());
             values.put(Message.COLS[3], message.getDate());
