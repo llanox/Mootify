@@ -16,6 +16,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -55,10 +56,10 @@ public class UITest extends Activity {
 
         Adaptador ad = new Adaptador(this, elementos);
         list.setAdapter(ad);
-        
-        this.dao = GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
-        this.dao = GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
-        this.dao = GenericDAO.getInstance(getApplicationContext(), DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
+
+        this.dao = GenericDAO.getInstance(getApplicationContext(), UITest.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), UITest.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), UITest.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
     }
 
     @Override
@@ -91,7 +92,7 @@ public class UITest extends Activity {
     public void onRefresh(View view) {
         Toast.makeText(this,"Loading Messages ..." , Toast.LENGTH_SHORT).show();
 
-        int temp1 = 0, temp2 = 0, temp3 = 0;
+        /*int temp1 = 0, temp2 = 0, temp3 = 0;
         if (this.dao != null) {
             for (int c = 0; c < 5; c++) {
                 Course course = new Course("" + temp1, "Course #" + (temp1 + 1));
@@ -112,7 +113,25 @@ public class UITest extends Activity {
                 }
                 temp1++;
             }
+        }*/
+
+        //int counter = this.dao.deleteCourse("0");
+        //Toast.makeText(getApplicationContext(), "Eliminated: " + counter, Toast.LENGTH_SHORT).show();
+        
+        /*Cursor cursor = this.dao.getAllFromTable(Course.DATABASE_TABLE, Course.COLS);
+        cursor.moveToFirst();
+        int indexId = cursor.getColumnIndex(Course.COLS[1]);
+        int indexName = cursor.getColumnIndex(Course.COLS[2]);
+
+        for (int i = 0; i < cursor.getCount(); i++) {
+            String id = cursor.getString(indexId);
+            String name = cursor.getString(indexName);
+            Course course = new Course(id, name);
+
+            Toast.makeText(getApplicationContext(), "Course #" + (i + 1) + "\n\nID: " + course.getId() + "\nName: " + course.getName(), Toast.LENGTH_SHORT).show();
+            cursor.moveToNext();
         }
+        cursor.close();*/
     }
 
     private void onSaveCourse(Course course) {
@@ -182,7 +201,7 @@ public class UITest extends Activity {
             LayoutInflater inflater = activity.getLayoutInflater();
             View item = inflater.inflate(R.layout.item_list, null);
 
-            TextView title = (TextView)item.findViewById(R.id.message_title);
+            TextView title = (TextView) item.findViewById(R.id.message_title);
             title.setText(getItem(position).getTitle());
 
             TextView materia = (TextView) item.findViewById(R.id.subject);

@@ -146,6 +146,7 @@ public class GenericDAO extends SQLiteOpenHelper {
             counter = counter + this.deleteForum(cursor.getString(indexId));
             cursor.moveToNext();
         }
+        cursor.close();
         this.delete(Course.DATABASE_TABLE, Course.COLS, id);
 
         return counter;
@@ -162,6 +163,7 @@ public class GenericDAO extends SQLiteOpenHelper {
             counter = counter + this.deleteMessage(cursor.getString(indexId));
             cursor.moveToNext();
         }
+        cursor.close();
         this.delete(Forum.DATABASE_TABLE, Forum.COLS, id);
 
         return counter;
@@ -173,7 +175,7 @@ public class GenericDAO extends SQLiteOpenHelper {
         return (this.delete(Message.DATABASE_TABLE, Message.COLS, id));
     }
 
-    public int delete(String tableName, String[] columns, String id) {
+    private int delete(String tableName, String[] columns, String id) {
 
         return (this.db.delete(tableName, columns[1] + "=" + id, null));
     }
