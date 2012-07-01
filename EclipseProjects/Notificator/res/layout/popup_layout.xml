@@ -1,71 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@android:drawable/dialog_frame"
     android:layout_height="wrap_content"
-    android:layout_width="fill_parent" >
+    android:layout_width="wrap_content">
 
     <TableRow
-        android:gravity="center_horizontal|center_vertical"
-        android:layout_height="match_parent"
-        android:layout_width="fill_parent" >
+        android:id="@+id/quick_left"        
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"        
+        >
+                
         <ImageButton
-            android:id="@+id/oneButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher" >
-        </ImageButton>
-        <ImageButton
-            android:id="@+id/twoButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher" >
-        </ImageButton>
-        <ImageButton
-            android:id="@+id/threeButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher" >
-        </ImageButton>
-        <ImageButton
-            android:id="@+id/fourButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher" >
-        </ImageButton>
+            android:id="@+id/discard_q_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:background="@drawable/animation_discard_button"
+            android:onClick="onClick" >
+        </ImageButton>        
+        
     </TableRow>
-
-    <TableRow
-        android:gravity="center_horizontal|center_vertical"
-        android:layout_height="match_parent"
-        android:layout_width="fill_parent" >
-        <TextView
-            android:id="@+id/oneLabel"
+                  
+        <ImageView
+        android:contentDescription="@string/separator"
+        android:id="@+id/separator_q"
+        android:layout_height="@dimen/actionbar_separator_height"       
+        android:layout_width="@dimen/actionbar_separator_width"        
+        android:src="@drawable/separator" 
+        />
+        
+   <TableRow
+        android:id="@+id/quick_right"        
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        >
+                 
+        <ImageButton
+            android:id="@+id/share_q_action"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="label ONE"
-            android:textColor="#FFFFFFFF" >
-        </TextView>
-        <TextView
-            android:id="@+id/twoLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="label TWO"
-            android:textColor="#FFFFFFFF" >
-        </TextView>
-        <TextView
-            android:id="@+id/threeLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="label TRHEE"
-            android:textColor="#FFFFFFFF" >
-        </TextView>
-        <TextView
-            android:id="@+id/fourLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="label FOUR"
-            android:textColor="#FFFFFFFF" >
-        </TextView>
-    </TableRow>
-</TableLayout>
+            android:layout_height="wrap_content"            
+            android:background="@drawable/animation_share_button"
+            android:onClick="onClick">
+        </ImageButton>
+                                
+    </TableRow>   
+    
+</TableRow>

@@ -32,7 +32,7 @@ import android.view.View.OnClickListener;
  * ejecuci贸n de la aplicaci贸n.
  */
 
-public class UITest extends Activity {
+public class MessageListHandler extends Activity {
 
     public static String DATABASE_NAME = "Mootify";
     public static int DATABASE_VERSION = 1;
@@ -57,9 +57,43 @@ public class UITest extends Activity {
         Adaptador ad = new Adaptador(this, elementos);
         list.setAdapter(ad);
 
-        this.dao = GenericDAO.getInstance(getApplicationContext(), UITest.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
-        this.dao = GenericDAO.getInstance(getApplicationContext(), UITest.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
-        this.dao = GenericDAO.getInstance(getApplicationContext(), UITest.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListHandler.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListHandler.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListHandler.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
+    }
+    
+  //Opci髇 menu de preferencias en la vista de la lista de mensajes, accede al recurso creado en la carpeta res > menu
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+    	MenuInflater inflater = getMenuInflater();
+    	inflater.inflate(R.menu.menu, menu);
+    	return true;    	
+    }
+    
+  //Implementacion de cada una de las opciones del menu
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+    	switch (item.getItemId())
+    	{
+    	case R.id.number_messages:
+    		Toast.makeText(this,"Option number messages" , Toast.LENGTH_SHORT).show();
+    		return true;
+    	
+    	case R.id.login_preferences:
+    		Toast.makeText(this,"Option login preferences" , Toast.LENGTH_SHORT).show();
+    		return true;
+    	
+    	case R.id.social_preferences:
+    		Toast.makeText(this,"Option social preferences" , Toast.LENGTH_SHORT).show();
+    		return true;
+    		
+    	case R.id.about:
+    		Toast.makeText(this,"Option About" , Toast.LENGTH_SHORT).show();
+    		return true;
+    	
+    	default:
+    		return super.onOptionsItemSelected(item);
+    	}
     }
 
     @Override
@@ -74,19 +108,14 @@ public class UITest extends Activity {
     // Create an anonymous implementation of OnClickListener.
     private OnClickListener mCorkyListener = new OnClickListener() {
         public void onClick(View v) {
-            Intent intent = new Intent(UITest.this, MessageHandler.class);
+            Intent intent = new Intent(MessageListHandler.this, MessageHandler.class);
             startActivity(intent);
         }
     };
 
     private void showError(MootifyException e) {
         
-    }
-
-    // M茅todo para la opcion filtrar informaci贸n.
-    public void onFilter(View view) {
-        Toast.makeText(this,"Filtering Content ..." , Toast.LENGTH_SHORT).show();
-    }
+    }  
 
     // M茅todo para la opci贸n leer mensajes.
     public void onRefresh(View view) {
