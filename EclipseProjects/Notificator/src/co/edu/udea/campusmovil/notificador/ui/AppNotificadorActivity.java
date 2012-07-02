@@ -3,12 +3,17 @@ package co.edu.udea.campusmovil.notificador.ui;
 import co.edu.udea.campusmovil.notificador.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 /*
@@ -23,6 +28,7 @@ public class AppNotificadorActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
+	Dialog dialogo;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,24 +55,19 @@ public class AppNotificadorActivity extends Activity {
     {
     	switch (item.getItemId())
     	{
-    	case R.id.number_messages:
+    	case R.id.preferences:
     		Toast.makeText(this,"Option number messages" , Toast.LENGTH_SHORT).show();
-    		return true;
-    	
-    	case R.id.login_preferences:
-    		Toast.makeText(this,"Option login preferences" , Toast.LENGTH_SHORT).show();
-    		return true;
-    	
-    	case R.id.social_preferences:
-    		Toast.makeText(this,"Option social preferences" , Toast.LENGTH_SHORT).show();
-    		return true;
+    		return true;    	
     		
-    	case R.id.about:
-    		Toast.makeText(this,"Option About" , Toast.LENGTH_SHORT).show();
+    	case R.id.about:    		
+    		dialogo = new Dialog(this);    		
+    		dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    		dialogo.setContentView(R.layout.about_text);    		
+    		dialogo.show();   		
     		return true;
     	
     	default:
     		return super.onOptionsItemSelected(item);
     	}
-    }
+    }   
 }

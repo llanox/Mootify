@@ -3,14 +3,17 @@ package co.edu.udea.campusmovil.notificador.ui;
 import co.edu.udea.campusmovil.notificador.R;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 public class MessageHandler extends Activity {
+	Dialog dialogo;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,20 +34,15 @@ public class MessageHandler extends Activity {
     {
     	switch (item.getItemId())
     	{
-    	case R.id.number_messages:
-    		Toast.makeText(this,"Option number messages" , Toast.LENGTH_SHORT).show();
-    		return true;
-    	
-    	case R.id.login_preferences:
-    		Toast.makeText(this,"Option login preferences" , Toast.LENGTH_SHORT).show();
-    		return true;
-    	
-    	case R.id.social_preferences:
-    		Toast.makeText(this,"Option social preferences" , Toast.LENGTH_SHORT).show();
-    		return true;
+    	case R.id.preferences:
+    		Toast.makeText(this,"Option preferences" , Toast.LENGTH_SHORT).show();
+    		return true;   	
     		
     	case R.id.about:
-    		Toast.makeText(this,"Option About" , Toast.LENGTH_SHORT).show();
+    		dialogo = new Dialog(this);    		
+    		dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    		dialogo.setContentView(R.layout.about_text);    		
+    		dialogo.show();   		
     		return true;
     	
     	default:

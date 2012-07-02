@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -33,6 +34,7 @@ import android.view.View.OnClickListener;
  */
 
 public class MessageListHandler extends Activity {
+	Dialog dialogo;
 
     public static String DATABASE_NAME = "Mootify";
     public static int DATABASE_VERSION = 1;
@@ -75,20 +77,15 @@ public class MessageListHandler extends Activity {
     {
     	switch (item.getItemId())
     	{
-    	case R.id.number_messages:
-    		Toast.makeText(this,"Option number messages" , Toast.LENGTH_SHORT).show();
-    		return true;
-    	
-    	case R.id.login_preferences:
-    		Toast.makeText(this,"Option login preferences" , Toast.LENGTH_SHORT).show();
-    		return true;
-    	
-    	case R.id.social_preferences:
-    		Toast.makeText(this,"Option social preferences" , Toast.LENGTH_SHORT).show();
-    		return true;
+    	case R.id.preferences:
+    		Toast.makeText(this,"Option preferences" , Toast.LENGTH_SHORT).show();
+    		return true;   	
     		
     	case R.id.about:
-    		Toast.makeText(this,"Option About" , Toast.LENGTH_SHORT).show();
+    		dialogo = new Dialog(this);    		
+    		dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    		dialogo.setContentView(R.layout.about_text);    		
+    		dialogo.show();   		
     		return true;
     	
     	default:

@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     
     <item
-     android:id="@+id/number_messages"
-     android:title="@string/number_messages"
-     android:icon="@drawable/number_messages"
-     />        
-    
-    <item
-     android:id="@+id/login_preferences"
-     android:title="@string/login_preferences"
-     android:icon="@drawable/login_preferences"    
-    />
-    
-    <item
-     android:id="@+id/social_preferences"
-     android:title="@string/social_preferences"
-     android:icon="@drawable/social_preferences"    
-    />
+     android:id="@+id/preferences"
+     android:title="@string/preferences"
+     android:icon="@drawable/preferences"
+     />  
     
     <item
      android:id="@+id/about"
      android:title="@string/about"
-     android:icon="@drawable/about"
+     android:icon="@drawable/about"     
     />
+    
 </menu>

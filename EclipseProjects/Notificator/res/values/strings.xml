@@ -32,5 +32,14 @@
     <string name="number_messages">Mensajes</string>
     <string name="login_preferences">Usuario</string>
     <string name="social_preferences">Redes sociales</string>
-    <string name="about">Información</string>
+    <string name="about">Acerca de la aplicación</string>
+    <string name="preferences">Preferencias</string>
+    <string name="about_text">Aplicación desarrollada por el grupo CampusMovil</string>
+    <string name="about_text1">Asesores: \n Juan Gabriel Gutírrez \nDanny Múnera Ramírez</string>
+    <string name="about_text2">Estudiantes: \nAnderson Etiver Alvarez Giraldo: \nConsumo del servicio. \nEdwin Alejandro Taborda Marín: \nInterfaz gráfica. \nNeiber Padierna Pérez: \nBase de datos.</string>
+    <string name="about_text3">Una aplicación desarrollada para el grupo Ude@ \nTodos los derechos reservados \nUniversidad de Antioquia \n2012</string>
+    <string name="about_text_land">Aplicación desarrollada por el grupo CampusMovil</string>
+    <string name="about_text1_land">Asesores: \n Juan Gabriel Gutírrez,  Danny Múnera Ramírez</string>
+    <string name="about_text2_land">Estudiantes: \nAnderson Etiver Alvarez Giraldo: Consumo del servicio. \nEdwin Alejandro Taborda Marín: Interfaz gráfica. \nNeiber Padierna Pérez: Base de datos.</string>
+    <string name="about_text3_land">Una aplicación desarrollada para el grupo Ude@ \nTodos los derechos reservados \nUniversidad de Antioquia \n2012</string>
 </resources>
