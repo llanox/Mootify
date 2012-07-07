@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+ 	<ListPreference
+ 	 android:key="number_messages"
+ 	 android:title="@string/number_messages_title"
+ 	 android:summary="@string/number_messages_summary"
+ 	 android:entries="@array/number_messages"
+ 	 android:entryValues="@array/number_messages"
+ 	 android:defaultValue="0"/>
+ 	
+ 	<EditTextPreference
+ 	 android:key="user_name"
+ 	 android:title="@string/user_name_title"
+ 	 android:summary="@string/user_name_summary"/>
+ 	
+ 	<EditTextPreference 
+ 	 android:key="password"
+ 	 android:title="@string/password_title"
+ 	 android:summary="@string/password_summary"/>
+     
+ 	   
+
+</PreferenceScreen>

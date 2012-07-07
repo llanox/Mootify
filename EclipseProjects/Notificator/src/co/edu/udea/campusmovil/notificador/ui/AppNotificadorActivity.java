@@ -29,6 +29,7 @@ public class AppNotificadorActivity extends Activity {
      * Called when the activity is first created.
      */
 	Dialog dialogo;
+	private Intent intent;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +57,13 @@ public class AppNotificadorActivity extends Activity {
     	switch (item.getItemId())
     	{
     	case R.id.preferences:
-    		Toast.makeText(this,"Option number messages" , Toast.LENGTH_SHORT).show();
+    		this.intent = new Intent(this,Preferences.class);//con el intent puedo llamar a la clase que maneja el xml settings
+    		startActivity(this.intent);
     		return true;    	
     		
     	case R.id.about:    		
     		dialogo = new Dialog(this);    		
-    		dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    		dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);//opcion para mostrar el dialog sin el titulo o cabecera
     		dialogo.setContentView(R.layout.about_text);    		
     		dialogo.show();   		
     		return true;

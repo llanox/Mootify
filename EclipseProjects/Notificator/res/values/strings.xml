@@ -29,9 +29,6 @@
     <string name="user_name" >Mares User</string>
     <string name="remitente" >Carlos Henao</string>
     <string name="subject" >Inglés III</string>
-    <string name="number_messages">Mensajes</string>
-    <string name="login_preferences">Usuario</string>
-    <string name="social_preferences">Redes sociales</string>
     <string name="about">Acerca de la aplicación</string>
     <string name="preferences">Preferencias</string>
     <string name="about_text">Aplicación desarrollada por el grupo CampusMovil</string>
@@ -42,4 +39,10 @@
     <string name="about_text1_land">Asesores: \n Juan Gabriel Gutírrez,  Danny Múnera Ramírez</string>
     <string name="about_text2_land">Estudiantes: \nAnderson Etiver Alvarez Giraldo: Consumo del servicio. \nEdwin Alejandro Taborda Marín: Interfaz gráfica. \nNeiber Padierna Pérez: Base de datos.</string>
     <string name="about_text3_land">Una aplicación desarrollada para el grupo Ude@ \nTodos los derechos reservados \nUniversidad de Antioquia \n2012</string>
+    <string name="number_messages_title">Cantidad de mensajes</string>
+    <string name="number_messages_summary">Numero de mensajes en la bandeja de entrada</string>
+    <string name="user_name_title">Usuario</string>
+    <string name="user_name_summary">Cambiar de usuario</string>
+    <string name="password_title">Contraseña</string>
+    <string name="password_summary">Cambiar de contraseña</string>
 </resources>

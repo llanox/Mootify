@@ -14,23 +14,26 @@ public final class R {
         public static final int shrink_from_bottom=0x7f040002;
         public static final int shrink_from_top=0x7f040003;
     }
+    public static final class array {
+        public static final int number_messages=0x7f060000;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int action_bar_background=0x7f050001;
-        public static final int divider_color=0x7f050000;
-        public static final int item_list_background=0x7f050002;
-        public static final int item_list_textcolor=0x7f050003;
-        public static final int main_background=0x7f050004;
-        public static final int message_content_background=0x7f050005;
+        public static final int action_bar_background=0x7f070001;
+        public static final int divider_color=0x7f070000;
+        public static final int item_list_background=0x7f070002;
+        public static final int item_list_textcolor=0x7f070003;
+        public static final int main_background=0x7f070004;
+        public static final int message_content_background=0x7f070005;
     }
     public static final class dimen {
-        public static final int actionbar_separator_height=0x7f060000;
-        public static final int actionbar_separator_width=0x7f060001;
-        public static final int login_button_width=0x7f060002;
-        public static final int login_edittext_height=0x7f060003;
-        public static final int login_edittext_width=0x7f060004;
-        public static final int login_text_size=0x7f060005;
+        public static final int actionbar_separator_height=0x7f080000;
+        public static final int actionbar_separator_width=0x7f080001;
+        public static final int login_button_width=0x7f080002;
+        public static final int login_edittext_height=0x7f080003;
+        public static final int login_edittext_width=0x7f080004;
+        public static final int login_text_size=0x7f080005;
     }
     public static final class drawable {
         public static final int about=0x7f020000;
@@ -66,38 +69,38 @@ public final class R {
         public static final int share_selected=0x7f02001e;
     }
     public static final class id {
-        public static final int Logo=0x7f0a0006;
-        public static final int about=0x7f0a001f;
-        public static final int action_bar=0x7f0a001a;
-        public static final int actionbar_logo=0x7f0a0004;
-        public static final int asunto=0x7f0a0010;
-        public static final int barra_accion_mensaje=0x7f0a001c;
-        public static final int contenido_mensaje=0x7f0a001d;
-        public static final int cuerpo_mensaje=0x7f0a0014;
-        public static final int curso=0x7f0a0013;
-        public static final int discard_q_action=0x7f0a0016;
-        public static final int elements_list=0x7f0a001b;
-        public static final int fecha=0x7f0a0012;
-        public static final int header=0x7f0a000f;
-        public static final int login=0x7f0a000e;
-        public static final int login_layout=0x7f0a000a;
-        public static final int logo_home=0x7f0a000b;
-        public static final int message_title=0x7f0a0007;
-        public static final int password=0x7f0a000d;
-        public static final int preferences=0x7f0a001e;
-        public static final int quick_left=0x7f0a0015;
-        public static final int quick_right=0x7f0a0018;
-        public static final int quickation_image=0x7f0a0009;
-        public static final int refresh=0x7f0a0002;
-        public static final int remitente=0x7f0a0011;
-        public static final int search=0x7f0a0000;
-        public static final int separator1=0x7f0a0001;
-        public static final int separator3=0x7f0a0003;
-        public static final int separator_q=0x7f0a0017;
-        public static final int share=0x7f0a0005;
-        public static final int share_q_action=0x7f0a0019;
-        public static final int subject=0x7f0a0008;
-        public static final int user_name=0x7f0a000c;
+        public static final int Logo=0x7f0c0006;
+        public static final int about=0x7f0c001f;
+        public static final int action_bar=0x7f0c001a;
+        public static final int actionbar_logo=0x7f0c0004;
+        public static final int asunto=0x7f0c0010;
+        public static final int barra_accion_mensaje=0x7f0c001c;
+        public static final int contenido_mensaje=0x7f0c001d;
+        public static final int cuerpo_mensaje=0x7f0c0014;
+        public static final int curso=0x7f0c0013;
+        public static final int discard_q_action=0x7f0c0016;
+        public static final int elements_list=0x7f0c001b;
+        public static final int fecha=0x7f0c0012;
+        public static final int header=0x7f0c000f;
+        public static final int login=0x7f0c000e;
+        public static final int login_layout=0x7f0c000a;
+        public static final int logo_home=0x7f0c000b;
+        public static final int message_title=0x7f0c0007;
+        public static final int password=0x7f0c000d;
+        public static final int preferences=0x7f0c001e;
+        public static final int quick_left=0x7f0c0015;
+        public static final int quick_right=0x7f0c0018;
+        public static final int quickation_image=0x7f0c0009;
+        public static final int refresh=0x7f0c0002;
+        public static final int remitente=0x7f0c0011;
+        public static final int search=0x7f0c0000;
+        public static final int separator1=0x7f0c0001;
+        public static final int separator3=0x7f0c0003;
+        public static final int separator_q=0x7f0c0017;
+        public static final int share=0x7f0c0005;
+        public static final int share_q_action=0x7f0c0019;
+        public static final int subject=0x7f0c0008;
+        public static final int user_name=0x7f0c000c;
     }
     public static final class layout {
         public static final int about_text=0x7f030000;
@@ -111,49 +114,55 @@ public final class R {
         public static final int view_menssage=0x7f030008;
     }
     public static final class menu {
-        public static final int menu=0x7f090000;
+        public static final int menu=0x7f0b0000;
     }
     public static final class string {
-        public static final int about=0x7f07001a;
-        public static final int about_text=0x7f07001c;
-        public static final int about_text1=0x7f07001d;
-        public static final int about_text1_land=0x7f070021;
-        public static final int about_text2=0x7f07001e;
-        public static final int about_text2_land=0x7f070022;
-        public static final int about_text3=0x7f07001f;
-        public static final int about_text3_land=0x7f070023;
-        public static final int about_text_land=0x7f070020;
-        public static final int app_name=0x7f070000;
-        public static final int asunto=0x7f070001;
-        public static final int cuerpo=0x7f070002;
-        public static final int curso=0x7f070003;
-        public static final int description_delete=0x7f070004;
-        public static final int description_filter=0x7f070005;
-        public static final int description_itemlist_image=0x7f070006;
-        public static final int description_logo=0x7f070007;
-        public static final int description_message=0x7f070008;
-        public static final int description_save=0x7f070009;
-        public static final int description_search=0x7f07000b;
-        public static final int description_share=0x7f07000a;
-        public static final int fecha=0x7f07000c;
-        public static final int institutional=0x7f07000d;
-        public static final int login=0x7f07000e;
-        public static final int login_preferences=0x7f070018;
-        public static final int message_title=0x7f07000f;
-        public static final int nada=0x7f070010;
-        public static final int number_messages=0x7f070017;
-        public static final int opcion=0x7f070011;
-        public static final int password=0x7f070012;
-        public static final int preferences=0x7f07001b;
-        public static final int remitente=0x7f070015;
-        public static final int separator=0x7f070013;
-        public static final int social_preferences=0x7f070019;
-        public static final int subject=0x7f070016;
-        public static final int user_name=0x7f070014;
+        public static final int about=0x7f090017;
+        public static final int about_text=0x7f090019;
+        public static final int about_text1=0x7f09001a;
+        public static final int about_text1_land=0x7f09001e;
+        public static final int about_text2=0x7f09001b;
+        public static final int about_text2_land=0x7f09001f;
+        public static final int about_text3=0x7f09001c;
+        public static final int about_text3_land=0x7f090020;
+        public static final int about_text_land=0x7f09001d;
+        public static final int app_name=0x7f090000;
+        public static final int asunto=0x7f090001;
+        public static final int cuerpo=0x7f090002;
+        public static final int curso=0x7f090003;
+        public static final int description_delete=0x7f090004;
+        public static final int description_filter=0x7f090005;
+        public static final int description_itemlist_image=0x7f090006;
+        public static final int description_logo=0x7f090007;
+        public static final int description_message=0x7f090008;
+        public static final int description_save=0x7f090009;
+        public static final int description_search=0x7f09000b;
+        public static final int description_share=0x7f09000a;
+        public static final int fecha=0x7f09000c;
+        public static final int institutional=0x7f09000d;
+        public static final int login=0x7f09000e;
+        public static final int message_title=0x7f09000f;
+        public static final int nada=0x7f090010;
+        public static final int number_messages_summary=0x7f090022;
+        public static final int number_messages_title=0x7f090021;
+        public static final int opcion=0x7f090011;
+        public static final int password=0x7f090012;
+        public static final int password_summary=0x7f090026;
+        public static final int password_title=0x7f090025;
+        public static final int preferences=0x7f090018;
+        public static final int remitente=0x7f090015;
+        public static final int separator=0x7f090013;
+        public static final int subject=0x7f090016;
+        public static final int user_name=0x7f090014;
+        public static final int user_name_summary=0x7f090024;
+        public static final int user_name_title=0x7f090023;
     }
     public static final class style {
-        public static final int Animations=0x7f080000;
-        public static final int Animations_GrowFromBottom=0x7f080001;
-        public static final int Animations_GrowFromTop=0x7f080002;
+        public static final int Animations=0x7f0a0000;
+        public static final int Animations_GrowFromBottom=0x7f0a0001;
+        public static final int Animations_GrowFromTop=0x7f0a0002;
+    }
+    public static final class xml {
+        public static final int settings=0x7f050000;
     }
 }

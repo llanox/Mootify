@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -34,30 +35,36 @@ import android.view.View.OnClickListener;
  */
 
 public class MessageListHandler extends Activity {
-	Dialog dialogo;
-
+	
+	Dialog dialogo;//dialogo que contiene el mensage about de la App
     public static String DATABASE_NAME = "Mootify";
     public static int DATABASE_VERSION = 1;
-
     private GenericDAO dao;
     private ListView list;
     private QuickActionMenu quickAction;
+    private SharedPreferences preferences;//con esto puedo acceder a las preferencias del usuario
+    private PreferencesHandler handler;
 
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+       
+    	super.onCreate(savedInstanceState);
         this.setContentView(R.layout.principal_view);
-
         list = (ListView) findViewById(R.id.elements_list);
         List<ListItem> elementos = new ArrayList<ListItem>();
 
-        try {
+        try 
+        {
             elementos = MessageHelper.findAllMsgs("343434", "sasas");
-        } catch (MootifyException e) {
+        } 
+        catch (MootifyException e) 
+        {
             showError(e);
         }
-
-        Adaptador ad = new Adaptador(this, elementos);
-        list.setAdapter(ad);
+        
+        preferences = getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences",MODE_PRIVATE); // Obtengo las preferencias del usuario
+        handler = new PreferencesHandler(preferences,elementos);//el handler maneja la lista con todos los mensajes y retorna una nueva lista con la cantidad de elementos sacada de las preferencias       
+        Adaptador ad = new Adaptador(this, handler.getList());//le paso al adaptador la lista con la cantidad de elementos desceados.
+        list.setAdapter(ad);//imprimo los elementos en la lista del formulario
 
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListHandler.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListHandler.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
@@ -92,7 +99,8 @@ public class MessageListHandler extends Activity {
     		return super.onOptionsItemSelected(item);
     	}
     }
-
+  //Implementacion de cada una de las opciones del menu
+    
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -214,16 +222,19 @@ public class MessageListHandler extends Activity {
         }
     }
 
-    // Clase temporal para probar el ListView.
-    private class Adaptador extends ArrayAdapter<ListItem> {
+    // Clase para infler el ListView.
+    private class Adaptador extends ArrayAdapter<ListItem> 
+    {
         private Activity activity;
 
-        public Adaptador(Activity activity, List<ListItem> element) {
+        public Adaptador(Activity activity, List<ListItem> element) 
+        {
             super(activity, R.layout.item_list, element);
             this.activity = activity;
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) 
+        {
             LayoutInflater inflater = activity.getLayoutInflater();
             View item = inflater.inflate(R.layout.item_list, null);
 
