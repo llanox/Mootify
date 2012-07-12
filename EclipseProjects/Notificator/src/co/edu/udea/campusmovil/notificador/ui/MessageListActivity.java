@@ -1,15 +1,5 @@
 package co.edu.udea.campusmovil.notificador.ui;
 
-import co.edu.udea.campusmovil.notificador.exceptions.MootifyException;
-import co.edu.udea.campusmovil.notificador.helpers.GenericDAO;
-import co.edu.udea.campusmovil.notificador.helpers.MessageHelper;
-import co.edu.udea.campusmovil.notificador.model.Course;
-import co.edu.udea.campusmovil.notificador.model.Forum;
-import co.edu.udea.campusmovil.notificador.model.ListItem;
-import co.edu.udea.campusmovil.notificador.model.Message;
-import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
-import co.edu.udea.campusmovil.notificador.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,15 +8,29 @@ import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.util.Log;
-import android.view.*;
-import android.view.View.OnClickListener;
+import co.edu.udea.campusmovil.notificador.R;
+import co.edu.udea.campusmovil.notificador.exceptions.MootifyException;
+import co.edu.udea.campusmovil.notificador.helpers.GenericDAO;
+import co.edu.udea.campusmovil.notificador.helpers.MessageHelper;
+import co.edu.udea.campusmovil.notificador.model.Course;
+import co.edu.udea.campusmovil.notificador.model.Forum;
+import co.edu.udea.campusmovil.notificador.model.ListItem;
+import co.edu.udea.campusmovil.notificador.model.Message;
+import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
 
 /*
  * Esta clase es utilizada por el momento (temporalmente) para probar los
@@ -71,7 +75,7 @@ public class MessageListActivity extends Activity {
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
     }
     
-  //Opción menu de preferencias en la vista de la lista de mensajes, accede al recurso creado en la carpeta res > menu
+  //Opciï¿½n menu de preferencias en la vista de la lista de mensajes, accede al recurso creado en la carpeta res > menu
     public boolean onCreateOptionsMenu(Menu menu)
     {
     	MenuInflater inflater = getMenuInflater();
@@ -168,36 +172,54 @@ public class MessageListActivity extends Activity {
         cursor.close();*/
     }
 
-    private void onSaveCourse(Course course) {
-         if (this.dao != null) {
-            ContentValues values = new ContentValues();
-            values.put(Course.COLS[1], course.getId());
-            values.put(Course.COLS[2], course.getName());
-            this.dao.insert(Course.DATABASE_TABLE, values);
-         }
+    private boolean onSaveCourse(Course course) {
+        if (this.dao != null && course != null) {
+           if (this.dao.getCourseById(true, course.getId()) == null) {
+               ContentValues values = new ContentValues();
+               values.put(Course.COLS[1], course.getId());
+               values.put(Course.COLS[2], course.getName());
+               this.dao.insert(Course.DATABASE_TABLE, values);
+
+               return true;
+           }
+        }
+
+        return false;
+   }
+
+    private boolean onSaveForum(Forum forum) {
+        if (this.dao != null && forum != null) {
+            if (this.dao.getForumById(true, forum.getId()) == null) {
+                ContentValues values = new ContentValues();
+                values.put(Forum.COLS[1], forum.getId());
+                values.put(Forum.COLS[2], forum.getName());
+                values.put(Forum.COLS[3], forum.getType());
+                values.put(Forum.COLS[4], forum.getCourseId());			// course.getId();
+                this.dao.insert(Forum.DATABASE_TABLE, values);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    private void onSaveForum(Forum forum) {
-        if (this.dao != null) {
-            ContentValues values = new ContentValues();
-            values.put(Forum.COLS[1], forum.getId());
-            values.put(Forum.COLS[2], forum.getName());
-            values.put(Forum.COLS[3], forum.getType());
-            values.put(Forum.COLS[4], forum.getCourseId());			// course.getId();
-            this.dao.insert(Forum.DATABASE_TABLE, values);
-        }
-    }
+    private boolean onSaveMessage(Message message) {
+        if (this.dao != null && message != null) {
+            if (this.dao.getMessageById(true, message.getId()) == null) {
+                ContentValues values = new ContentValues();
+                values.put(Message.COLS[1], message.getId());
+                values.put(Message.COLS[2], message.getName());
+                values.put(Message.COLS[3], message.getDate());
+                values.put(Message.COLS[4], message.getContent());
+                values.put(Message.COLS[5], message.getForumId());		// forum.getId();
+                this.dao.insert(Message.DATABASE_TABLE, values);
 
-    private void onSaveMessage(Message message) {
-        if (this.dao != null) {
-            ContentValues values = new ContentValues();
-            values.put(Message.COLS[1], message.getId());
-            values.put(Message.COLS[2], message.getName());
-            values.put(Message.COLS[3], message.getDate());
-            values.put(Message.COLS[4], message.getContent());
-            values.put(Message.COLS[5], message.getForumId());		// forum.getId();
-            this.dao.insert(Message.DATABASE_TABLE, values);
+                return true;
+            }
         }
+
+        return false;
     }
 
     // MÃ©todo para la opcion buscar mensajes.

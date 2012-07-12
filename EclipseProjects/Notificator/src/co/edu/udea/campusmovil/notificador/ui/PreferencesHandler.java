@@ -36,7 +36,4 @@ public class PreferencesHandler
 	{
 		return elements_with_preferences;
 	}
-	
-	
-
 }

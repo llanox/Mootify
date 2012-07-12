@@ -174,45 +174,72 @@ public class GenericDAO extends SQLiteOpenHelper {
         return (this.db.query(tableName, columns, null, null, null, null, null));
     }
 
-    public Course getCourseById(boolean isUdeAId, String id) {
-         Cursor cursor = this.getOneFromTable(isUdeAId, Course.DATABASE_TABLE, Course.COLS, id);
+    public Course getCourseById(boolean isUdeAId, String idCourse) {
+         Cursor cursor = this.getOneFromTable(isUdeAId, Course.DATABASE_TABLE, Course.COLS, idCourse);
          if (cursor == null || cursor.getCount() == 0) {
+             if (cursor != null) {
+                 cursor.close();
+             }
 
              return null;
          }
-         //String id = cursor.getString(cursor.getColumnIndex(Course.COLS[1]));
-         String name = cursor.getString(cursor.getColumnIndex(Course.COLS[2]));
 
-         return (new Course(id, name));
+         String idTemp = idCourse;
+         if (!isUdeAId) {
+             idTemp = cursor.getString(cursor.getColumnIndex(Course.COLS[1]));
+         }
+
+         String name = cursor.getString(cursor.getColumnIndex(Course.COLS[2]));
+         cursor.close();
+
+         return (new Course(idTemp, name));
     }
 
-    public Forum getForumById(boolean isUdeAId, String id) {
-         Cursor cursor = this.getOneFromTable(isUdeAId, Forum.DATABASE_TABLE, Forum.COLS, id);
+    public Forum getForumById(boolean isUdeAId, String idForum) {
+         Cursor cursor = this.getOneFromTable(isUdeAId, Forum.DATABASE_TABLE, Forum.COLS, idForum);
          if (cursor == null || cursor.getCount() == 0) {
+             if (cursor != null) {
+                 cursor.close();
+             }
 
              return null;
          }
-         //String id = cursor.getString(cursor.getColumnIndex(Forum.COLS[1]));
+
+         String idTemp = idForum;
+         if (!isUdeAId) {
+             idTemp = cursor.getString(cursor.getColumnIndex(Forum.COLS[1]));
+         }
+
          String name = cursor.getString(cursor.getColumnIndex(Forum.COLS[2]));
          String type = cursor.getString(cursor.getColumnIndex(Forum.COLS[3]));
          String courseId = cursor.getString(cursor.getColumnIndex(Forum.COLS[4]));
+         cursor.close();
 
-         return (new Forum(id, name, type, courseId));
+         return (new Forum(idTemp, name, type, courseId));
     }
 
-    public Message getMessageById(boolean isUdeAId, String id) {
-         Cursor cursor = this.getOneFromTable(isUdeAId, Message.DATABASE_TABLE, Message.COLS, id);
+    public Message getMessageById(boolean isUdeAId, String idMessage) {
+         Cursor cursor = this.getOneFromTable(isUdeAId, Message.DATABASE_TABLE, Message.COLS, idMessage);
          if (cursor == null || cursor.getCount() == 0) {
+             if (cursor != null) {
+                 cursor.close();
+             }
 
              return null;
          }
-         //String id = cursor.getString(cursor.getColumnIndex(Message.COLS[1]));
+
+         String idTemp = idMessage;
+         if (!isUdeAId) {
+             idTemp = cursor.getString(cursor.getColumnIndex(Message.COLS[1]));
+         }
+
          String name = cursor.getString(cursor.getColumnIndex(Message.COLS[2]));
          String date = cursor.getString(cursor.getColumnIndex(Message.COLS[3]));
          String content = cursor.getString(cursor.getColumnIndex(Message.COLS[4]));
          String forumId = cursor.getString(cursor.getColumnIndex(Message.COLS[4]));
+         cursor.close();
 
-         return (new Message(id, name, date, content, forumId));
+         return (new Message(idTemp, name, date, content, forumId));
     }
 
     /*
@@ -234,65 +261,99 @@ public class GenericDAO extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getMessagesByForum(String idForum) {
-        Cursor cursor = this.db.query(true, Message.DATABASE_TABLE, Message.COLS, Message.COLS[5] + "=" + idForum,
-            null, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-
-        return cursor;
-    }
-
-    public Cursor getForumsByCourse(String idCourse) {
+    public List<Forum> getForumsByCourse(String idCourse) {
         Cursor cursor = this.db.query(true, Forum.DATABASE_TABLE, Forum.COLS, Forum.COLS[4] + "=" + idCourse,
             null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
 
-        return cursor;
-    }
+        List<Forum> list = new ArrayList<Forum>();
+        if (cursor == null || cursor.getCount() == 0) {
 
-    public int deleteCourse(String id) {
-        int counter = 0;
-        Cursor cursor = this.getForumsByCourse(id);
-        cursor.moveToFirst();
-        int indexId = cursor.getColumnIndex(Forum.COLS[1]);
+            return (list);
+        }
 
-        for (int k = 0; k < cursor.getCount(); k++) {
-            counter = counter + this.deleteForum(cursor.getString(indexId));
+        for (int i = 0; i < cursor.getCount(); i++) {
+            String id = cursor.getString(cursor.getColumnIndex(Forum.COLS[1]));
+            String name = cursor.getString(cursor.getColumnIndex(Forum.COLS[2]));
+            String type = cursor.getString(cursor.getColumnIndex(Forum.COLS[3]));
+            String courseId = cursor.getString(cursor.getColumnIndex(Forum.COLS[4]));
+
+            list.add(new Forum(id, name, type, courseId));
             cursor.moveToNext();
         }
         cursor.close();
-        this.delete(Course.DATABASE_TABLE, Course.COLS, id);
+
+        return list;
+    }
+
+    public List<Message> getMessagesByForum(String idForum) {
+        Cursor cursor = this.db.query(true, Message.DATABASE_TABLE, Message.COLS, Message.COLS[5] + "=" + idForum,
+            null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        List<Message> list = new ArrayList<Message>();
+        if (cursor == null || cursor.getCount() == 0) {
+
+            return (list);
+        }
+
+        for (int i = 0; i < cursor.getCount(); i++) {
+            String id = cursor.getString(cursor.getColumnIndex(Message.COLS[1]));
+            String name = cursor.getString(cursor.getColumnIndex(Message.COLS[2]));
+            String date = cursor.getString(cursor.getColumnIndex(Message.COLS[3]));
+            String content = cursor.getString(cursor.getColumnIndex(Message.COLS[4]));
+            String forumId = cursor.getString(cursor.getColumnIndex(Message.COLS[4]));
+
+            list.add(new Message(id, name, date, content, forumId));
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        return (list);
+    }
+
+    public int deleteCourse(boolean isUdeAId, String id) {
+        int counter = 0;
+        List<Forum> list = this.getForumsByCourse(id);
+
+        for (int k = 0; k < list.size(); k++) {
+            Forum forum = list.get(k);
+            counter = counter + this.deleteForum(true, forum.getId());
+        }
+        this.delete(isUdeAId, Course.DATABASE_TABLE, Course.COLS, id);
 
         return counter;
     }
 
-    public int deleteForum(String id) {
+    public int deleteForum(boolean isUdeAId, String idForum) {
         int counter = 0;
-        Cursor cursor = this.getMessagesByForum(id);
-        cursor.moveToFirst();
-        int indexId = cursor.getColumnIndex(Message.COLS[1]);
-
-        for (int k = 0; k < cursor.getCount(); k++) {
-            counter = counter + this.deleteMessage(cursor.getString(indexId));
-            cursor.moveToNext();
+        List<Message> list = this.getMessagesByForum(idForum);
+        
+        for (int k = 0; k < list.size(); k++) {
+            Message message = (Message) list.get(k);
+            counter = counter + this.deleteMessage(true, message.getId());
         }
-        cursor.close();
-        this.delete(Forum.DATABASE_TABLE, Forum.COLS, id);
+        this.delete(isUdeAId, Forum.DATABASE_TABLE, Forum.COLS, idForum);
 
         return counter;
     }
 
-    public int deleteMessage(String id) {
+    public int deleteMessage(boolean isUdeAId, String idMessage) {
 
-        return (this.delete(Message.DATABASE_TABLE, Message.COLS, id));
+        return (this.delete(isUdeAId, Message.DATABASE_TABLE, Message.COLS, idMessage));
     }
 
-    private int delete(String tableName, String[] columns, String id) {
+    private int delete(boolean isUdeAId, String tableName, String[] columns, String id) {
+        if (isUdeAId) {
 
-        return (this.db.delete(tableName, columns[1] + "=" + id, null));
+            return (this.db.delete(tableName, columns[1] + "=" + id, null));
+        } else {
+
+            return (this.db.delete(tableName, columns[0] + "=" + id, null));
+        }
     }
 }

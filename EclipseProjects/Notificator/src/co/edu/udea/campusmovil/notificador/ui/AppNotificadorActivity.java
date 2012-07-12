@@ -1,12 +1,7 @@
 package co.edu.udea.campusmovil.notificador.ui;
 
-import co.edu.udea.campusmovil.notificador.R;
-
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.Toast;
+import co.edu.udea.campusmovil.notificador.R;
 
 /*
  * Esta clase contiene la primera actividad que se ejecuta una vez iniciada la
@@ -42,7 +37,7 @@ public class AppNotificadorActivity extends Activity {
         this.startActivity(intent);
     }
     
-    //Opción menu de preferencias en la vista del login, accede al recurso creado en la carpeta res > menu
+    //Opciï¿½n menu de preferencias en la vista del login, accede al recurso creado en la carpeta res > menu
     public boolean onCreateOptionsMenu(Menu menu)
     {
     	MenuInflater inflater = getMenuInflater();
