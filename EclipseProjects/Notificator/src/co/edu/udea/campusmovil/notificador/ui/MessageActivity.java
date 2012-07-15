@@ -4,12 +4,14 @@ import co.edu.udea.campusmovil.notificador.R;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MessageActivity extends Activity {
@@ -51,10 +53,54 @@ public class MessageActivity extends Activity {
     }
 
     public void onShare(View view) {
-        Toast.makeText(this,"Sharing Content ..." , Toast.LENGTH_SHORT).show();
+    	Intent intent=new Intent(android.content.Intent.ACTION_SEND);
+    	intent.setType("text/plain");
+    	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+    	String[] msgData = createMsgToShare();
+    	// Add data to the intent, the receiving app will decide what to do with it.
+    	intent.putExtra(Intent.EXTRA_SUBJECT,msgData[0] );
+    	intent.putExtra(Intent.EXTRA_TEXT, msgData[1]);
+    	
+    	
+    	this.startActivity(intent);
     }
 
-    public void onSave(View view) {
+    private String[] createMsgToShare() {
+		String[] data = new String[2];
+		
+    	String subject=((TextView)this.findViewById(R.id.asunto)).getText().toString();
+    	String rem = ((TextView)this.findViewById(R.id.remitente)).getText().toString();
+    	String content =((TextView)this.findViewById(R.id.cuerpo_mensaje)).getText().toString();
+    	String fecha =((TextView)this.findViewById(R.id.fecha)).getText().toString();
+    	String udeArroba = "Ude@-M: ";
+    	
+    	StringBuffer sb = new StringBuffer();
+    	sb.append(udeArroba);
+    	sb.append("\"");
+    	sb.append(subject);
+    	sb.append("\"");
+    	
+    	data[0]= sb.toString();
+    	sb.delete(0, sb.length()-1);
+    	
+    	sb.append("\n");
+    	sb.append("\n");
+    	sb.append(rem);
+    	sb.append("\n");
+    	sb.append(content);
+    	sb.append("\n");
+    	sb.append(fecha);
+        
+    	data[1] = sb.toString(); 
+    	
+    	
+    	
+    	
+		return data;
+	}
+
+	public void onSave(View view) {
         Toast.makeText(this,"Saving Content ..." , Toast.LENGTH_SHORT).show();
     }
 

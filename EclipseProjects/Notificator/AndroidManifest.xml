@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MessageListHandler"
+            android:name=".ui.MessageListActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ui.MessageHandler"
+            android:name=".ui.MessageActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

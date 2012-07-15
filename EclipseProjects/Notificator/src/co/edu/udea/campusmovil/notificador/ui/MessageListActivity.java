@@ -30,6 +30,9 @@ import co.edu.udea.campusmovil.notificador.model.Course;
 import co.edu.udea.campusmovil.notificador.model.Forum;
 import co.edu.udea.campusmovil.notificador.model.ListItem;
 import co.edu.udea.campusmovil.notificador.model.Message;
+import co.edu.udea.campusmovil.notificador.services.MessageService;
+import co.edu.udea.campusmovil.notificador.services.ServiceLocator;
+import co.edu.udea.campusmovil.notificador.services.ServiceNames;
 import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
 
 /*
@@ -126,50 +129,12 @@ public class MessageListActivity extends Activity {
         
     }  
 
-    // Método para la opción leer mensajes.
+  
     public void onRefresh(View view) {
         Toast.makeText(this,"Loading Messages ..." , Toast.LENGTH_SHORT).show();
-
-        /*int temp1 = 0, temp2 = 0, temp3 = 0;
-        if (this.dao != null) {
-            for (int c = 0; c < 5; c++) {
-                Course course = new Course("" + temp1, "Course #" + (temp1 + 1));
-                this.onSaveCourse(course);
-                for (int f = 0; f < 10; f++) {
-                    Forum forum = new Forum("" + temp2, "Forum #" + (temp1 + 1) * (temp2 + 1),
-                        "Forum Type #" + (temp1 * temp2), "" + temp1);
-                    this.onSaveForum(forum);
-                    for (int m = 0; m < 20; m++) {
-                        Message message = new Message("" + temp3,
-                            "Message #" + (temp1 + 1) * (temp1 + 2) * (temp3 + 1),
-                            "Date: " + (c + 1) * (f + 1) * (m + 1), "This is the message ... " + (temp1 + 1) * (temp1 + 2) * (temp3 + 1),
-                            "" + temp2);
-                        this.onSaveMessage(message);
-                        temp3++;
-                    }
-                    temp2++;
-                }
-                temp1++;
-            }
-        }*/
-
-        //int counter = this.dao.deleteCourse("0");
-        //Toast.makeText(getApplicationContext(), "Eliminated: " + counter, Toast.LENGTH_SHORT).show();
         
-        /*Cursor cursor = this.dao.getAllFromTable(Course.DATABASE_TABLE, Course.COLS);
-        cursor.moveToFirst();
-        int indexId = cursor.getColumnIndex(Course.COLS[1]);
-        int indexName = cursor.getColumnIndex(Course.COLS[2]);
-
-        for (int i = 0; i < cursor.getCount(); i++) {
-            String id = cursor.getString(indexId);
-            String name = cursor.getString(indexName);
-            Course course = new Course(id, name);
-
-            Toast.makeText(getApplicationContext(), "Course #" + (i + 1) + "\n\nID: " + course.getId() + "\nName: " + course.getName(), Toast.LENGTH_SHORT).show();
-            cursor.moveToNext();
-        }
-        cursor.close();*/
+        MessageService serviceMessage =  (MessageService) ServiceLocator.getInstance(ServiceNames.MESSAGE_SERVICE);
+        
     }
 
     private boolean onSaveCourse(Course course) {
@@ -179,7 +144,7 @@ public class MessageListActivity extends Activity {
                values.put(Course.COLS[1], course.getId());
                values.put(Course.COLS[2], course.getName());
                this.dao.insert(Course.DATABASE_TABLE, values);
-
+             
                return true;
            }
         }
