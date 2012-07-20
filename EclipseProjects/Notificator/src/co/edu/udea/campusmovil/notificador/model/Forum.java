@@ -5,7 +5,7 @@ public class Forum {
     public static String[] COLS = new String[] {"consecutive_id", "id", "name", "type", "course_id"};
     public static String DATABASE_TABLE = "forums";
 
-    public static String TABLE_CREATE = "create table " + Forum.DATABASE_TABLE + " ("
+    public static String TABLE_CREATE = "create table if not exists " + Forum.DATABASE_TABLE + " ("
         + Forum.COLS[0] + " integer primary key autoincrement, "
         + Forum.COLS[1] + " text not null,"
         + Forum.COLS[2] + " text not null, "

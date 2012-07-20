@@ -30,7 +30,7 @@
     <string name="remitente" >Carlos Henao</string>
     <string name="subject" >Inglés III</string>
     <string name="about">Acerca de la aplicación</string>
-    <string name="preferences">Preferencias</string>
+    <string name="preferences">Opciones</string>
     <string name="about_text">Aplicación desarrollada por el grupo CampusMovil</string>
     <string name="about_text1">Asesores: \n Juan Gabriel Gutírrez \nDanny Múnera Ramírez</string>
     <string name="about_text2">Estudiantes: \nAnderson Etiver Alvarez Giraldo: \nConsumo del servicio. \nEdwin Alejandro Taborda Marín: \nInterfaz gráfica. \nNeiber Padierna Pérez: \nBase de datos.</string>

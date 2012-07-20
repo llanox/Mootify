@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -51,26 +52,39 @@ public class MessageListActivity extends Activity {
     private SharedPreferences preferences;//con esto puedo acceder a las preferencias del usuario
     private PreferencesHandler handler;
     private Dialog dialogo;
-    private Intent intent;
 
+    @Override
+    public void onBackPressed() {
+    	super.onBackPressed();
+    	Log.d(this.getClass().getName(), "Pressing Back Button");
+    	this.finish();
+
+    	Intent intent = new Intent(this.getApplicationContext(), AppNotificadorActivity.class);
+    	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    	intent.putExtra("EXIT", true);
+    	this.startActivity(intent);
+    }
+
+    
+    @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.principal_view);
-        list = (ListView) findViewById(R.id.elements_list);
-        List<ListItem> elementos = new ArrayList<ListItem>();
 
+        this.list = (ListView) findViewById(R.id.elements_list);
+        List<ListItem> elementos = new ArrayList<ListItem>();
+        
         try {
             elementos = MessageHelper.findAllMsgs("343434", "sasas");
         } catch (MootifyException e) {
             showError(e);
         }
 
-        preferences = getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences",MODE_PRIVATE); // Obtengo las preferencias del usuario
-        handler = new PreferencesHandler(preferences,elementos);//el handler maneja la lista con todos los mensajes y retorna una nueva lista con la cantidad de elementos sacada de las preferencias
+        this.preferences = this.getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences", Context.MODE_PRIVATE); // Obtengo las preferencias del usuario        
+        this.handler = new PreferencesHandler(this.preferences, elementos);//el handler maneja la lista con todos los mensajes y retorna una nueva lista con la cantidad de elementos sacada de las preferencias
 
         Adaptador ad = new Adaptador(this, handler.getList());//le paso al adaptador la lista con la cantidad de elementos desceados.
-        list.setAdapter(ad);//imprimo los elementos en la lista del formulario
+        this.list.setAdapter(ad);//imprimo los elementos en la lista del formulario
 
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
@@ -89,8 +103,8 @@ public class MessageListActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.preferences:
-                this.intent = new Intent(this, Preferences.class);//con el intent puedo llamar a la clase que maneja el xml settings
-                startActivity(this.intent);
+                Intent intent = new Intent(this, PreferencesActivity.class);//con el intent puedo llamar a la clase que maneja el xml settings
+                startActivity(intent);
 
                 return true;
 
@@ -111,7 +125,7 @@ public class MessageListActivity extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
+        Log.d(this.getClass().getName(), "Destroyin the application");
         if (this.dao != null) {
             this.dao.close();
         }
@@ -127,6 +141,7 @@ public class MessageListActivity extends Activity {
     };
 
     private void showError(MootifyException e) {
+    	MessageUtil.showError(this, e);
     }
 
 
@@ -134,6 +149,7 @@ public class MessageListActivity extends Activity {
         Toast.makeText(this,"Loading Messages ..." , Toast.LENGTH_SHORT).show();
 
         MessageService serviceMessage =  (MessageService) ServiceLocator.getInstance(ServiceNames.MESSAGE_SERVICE);
+       // serviceMessage.findAllMessage(idEstudiante, password, firstRecord, lastRecord)
     }
 
     private boolean onSaveCourse(Course course) {

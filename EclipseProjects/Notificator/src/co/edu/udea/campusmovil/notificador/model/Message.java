@@ -5,7 +5,7 @@ public class Message {
     public static String[] COLS = new String[] {"consecutive_id", "id", "name", "date", "content", "forum_id"};
     public static String DATABASE_TABLE = "messages";
 
-    public static String TABLE_CREATE = "create table " + Message.DATABASE_TABLE + " ("
+    public static String TABLE_CREATE = "create table if not exists " + Message.DATABASE_TABLE + " ("
         + Message.COLS[0] + " integer primary key autoincrement, "
         + Message.COLS[1] + " text not null,"
         + Message.COLS[2] + " text not null, "

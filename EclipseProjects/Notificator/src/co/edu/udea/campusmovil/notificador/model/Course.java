@@ -5,7 +5,7 @@ public class Course {
     public static String[] COLS = new String[] {"consecutive_id", "id", "name"};
     public static String DATABASE_TABLE = "courses";
 
-    public static String TABLE_CREATE = "create table " + Course.DATABASE_TABLE + " ("
+    public static String TABLE_CREATE = "create table if not exists " + Course.DATABASE_TABLE + " ("
         + Course.COLS[0] + " integer primary key autoincrement, "
         + Course.COLS[1] + " text not null, "
         + Course.COLS[2] + " text not null, "

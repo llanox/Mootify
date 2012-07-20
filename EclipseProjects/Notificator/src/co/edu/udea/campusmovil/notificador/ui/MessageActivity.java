@@ -32,23 +32,24 @@ public class MessageActivity extends Activity {
 
   //Implementacion de cada una de las opciones del menu
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    	switch (item.getItemId()) {
             case R.id.preferences:
-                Toast.makeText(this,"Option preferences" , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, PreferencesActivity.class);//con el intent puedo llamar a la clase que maneja el xml settings
+                startActivity(intent);
 
                 return true;
 
             case R.id.about:
-                dialogo = new Dialog(this);
-                dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialogo.setContentView(R.layout.about_text);
-                dialogo.show();
+                this.dialogo = new Dialog(this);
+                this.dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                this.dialogo.setContentView(R.layout.about_text);
+                this.dialogo.show();
 
                 return true;
 
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        default:
+            return super.onOptionsItemSelected(item);
+    }
     }
 
     public void onShare(View view) {

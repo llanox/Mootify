@@ -30,7 +30,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ui.Preferences"
+            android:name=".ui.PreferencesActivity"
             android:label="@string/app_name">
         </activity>
     </application>

@@ -17,7 +17,7 @@ public class MessageHelper {
         MessageService messageService = (MessageService) ServiceLocator.getInstance(ServiceNames.MESSAGE_SERVICE_MOCK);
 
         try {
-            itemLista =messageService.findAllMessage(idEstudiante, pass, 0, 20);
+            itemLista = messageService.findAllMessage(idEstudiante, pass, 0, 20);
             PersistenceHelper.saveOrUpadate(itemLista);
         } catch (MootifyException ex) {
             itemLista = PersistenceHelper.findNElements(ListItem.class);
