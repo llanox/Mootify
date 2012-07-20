@@ -6,43 +6,37 @@
     android:layout_width="wrap_content">
 
     <TableRow
-        android:id="@+id/quick_left"        
+        android:id="@+id/quick_left"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"        
-        >
-                
+        android:layout_width="wrap_content" >
+
         <ImageButton
             android:id="@+id/discard_q_action"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"            
+            android:layout_height="wrap_content"
             android:background="@drawable/animation_discard_button"
             android:onClick="onClick" >
-        </ImageButton>        
-        
+        </ImageButton>
     </TableRow>
-                  
-        <ImageView
+
+    <ImageView
         android:contentDescription="@string/separator"
         android:id="@+id/separator_q"
-        android:layout_height="@dimen/actionbar_separator_height"       
-        android:layout_width="@dimen/actionbar_separator_width"        
-        android:src="@drawable/separator" 
-        />
-        
+        android:layout_height="@dimen/actionbar_separator_height"
+        android:layout_width="@dimen/actionbar_separator_width"
+        android:src="@drawable/separator" />
+
    <TableRow
-        android:id="@+id/quick_right"        
+        android:id="@+id/quick_right"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        >
-                 
+        android:layout_width="wrap_content" >
+
         <ImageButton
             android:id="@+id/share_q_action"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"            
+            android:layout_height="wrap_content"
             android:background="@drawable/animation_share_button"
             android:onClick="onClick" >
         </ImageButton>
-                                
-    </TableRow>   
-    
+    </TableRow>
 </TableRow>

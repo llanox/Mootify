@@ -93,9 +93,59 @@ public class GenericDAO extends SQLiteOpenHelper {
         return (this.db);
     }
 
-    public long insert(String tableName, ContentValues values) {
+    private long insert(String tableName, ContentValues values) {
 
         return (this.db.insert(tableName, null, values));
+    }
+
+    public boolean insertCourse(Course course) {
+        if (GenericDAO.instance != null && course != null) {
+            if (GenericDAO.instance.getCourseById(true, course.getId()) == null) {
+                ContentValues values = new ContentValues();
+                values.put(Course.COLS[1], course.getId());
+                values.put(Course.COLS[2], course.getName());
+                GenericDAO.instance.insert(Course.DATABASE_TABLE, values);
+
+                return true;
+            }
+         }
+
+         return false;
+    }
+
+    public boolean insertForum(Forum forum) {
+        if (GenericDAO.instance != null && forum != null) {
+            if (GenericDAO.instance.getForumById(true, forum.getId()) == null) {
+                ContentValues values = new ContentValues();
+                values.put(Forum.COLS[1], forum.getId());
+                values.put(Forum.COLS[2], forum.getName());
+                values.put(Forum.COLS[3], forum.getType());
+                values.put(Forum.COLS[4], forum.getCourseId());			// course.getId();
+                GenericDAO.instance.insert(Forum.DATABASE_TABLE, values);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean insertMessage(Message message) {
+        if (GenericDAO.instance != null && message != null) {
+            if (GenericDAO.instance.getMessageById(true, message.getId()) == null) {
+                ContentValues values = new ContentValues();
+                values.put(Message.COLS[1], message.getId());
+                values.put(Message.COLS[2], message.getName());
+                values.put(Message.COLS[3], message.getDate());
+                values.put(Message.COLS[4], message.getContent());
+                values.put(Message.COLS[5], message.getForumId());		// forum.getId();
+                GenericDAO.instance.insert(Message.DATABASE_TABLE, values);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public List<Course> getAllCourses() {

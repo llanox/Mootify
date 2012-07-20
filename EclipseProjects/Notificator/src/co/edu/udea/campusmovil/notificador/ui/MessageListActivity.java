@@ -42,8 +42,7 @@ import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
  */
 
 public class MessageListActivity extends Activity {
-	
-	Dialog dialogo;//dialogo que contiene el mensage about de la App
+
     public static String DATABASE_NAME = "Mootify";
     public static int DATABASE_VERSION = 1;
     private GenericDAO dao;
@@ -51,25 +50,25 @@ public class MessageListActivity extends Activity {
     private QuickActionMenu quickAction;
     private SharedPreferences preferences;//con esto puedo acceder a las preferencias del usuario
     private PreferencesHandler handler;
+    private Dialog dialogo;
+    private Intent intent;
 
     public void onCreate(Bundle savedInstanceState) {
-       
-    	super.onCreate(savedInstanceState);
+
+        super.onCreate(savedInstanceState);
         this.setContentView(R.layout.principal_view);
         list = (ListView) findViewById(R.id.elements_list);
         List<ListItem> elementos = new ArrayList<ListItem>();
 
-        try 
-        {
+        try {
             elementos = MessageHelper.findAllMsgs("343434", "sasas");
-        } 
-        catch (MootifyException e) 
-        {
+        } catch (MootifyException e) {
             showError(e);
         }
-        
+
         preferences = getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences",MODE_PRIVATE); // Obtengo las preferencias del usuario
-        handler = new PreferencesHandler(preferences,elementos);//el handler maneja la lista con todos los mensajes y retorna una nueva lista con la cantidad de elementos sacada de las preferencias       
+        handler = new PreferencesHandler(preferences,elementos);//el handler maneja la lista con todos los mensajes y retorna una nueva lista con la cantidad de elementos sacada de las preferencias
+
         Adaptador ad = new Adaptador(this, handler.getList());//le paso al adaptador la lista con la cantidad de elementos desceados.
         list.setAdapter(ad);//imprimo los elementos en la lista del formulario
 
@@ -77,37 +76,38 @@ public class MessageListActivity extends Activity {
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
     }
-    
+
   //Opci�n menu de preferencias en la vista de la lista de mensajes, accede al recurso creado en la carpeta res > menu
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-    	MenuInflater inflater = getMenuInflater();
-    	inflater.inflate(R.menu.menu, menu);
-    	return true;    	
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        return true;
     }
-    
+
   //Implementacion de cada una de las opciones del menu
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-    	switch (item.getItemId())
-    	{
-    	case R.id.preferences:
-    		Toast.makeText(this,"Option preferences" , Toast.LENGTH_SHORT).show();
-    		return true;   	
-    		
-    	case R.id.about:
-    		dialogo = new Dialog(this);    		
-    		dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    		dialogo.setContentView(R.layout.about_text);    		
-    		dialogo.show();   		
-    		return true;
-    	
-    	default:
-    		return super.onOptionsItemSelected(item);
-    	}
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.preferences:
+                this.intent = new Intent(this, Preferences.class);//con el intent puedo llamar a la clase que maneja el xml settings
+                startActivity(this.intent);
+
+                return true;
+
+            case R.id.about:
+                this.dialogo = new Dialog(this);
+                this.dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                this.dialogo.setContentView(R.layout.about_text);
+                this.dialogo.show();
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
   //Implementacion de cada una de las opciones del menu
-    
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -119,6 +119,7 @@ public class MessageListActivity extends Activity {
 
     // Create an anonymous implementation of OnClickListener.
     private OnClickListener mCorkyListener = new OnClickListener() {
+
         public void onClick(View v) {
             Intent intent = new Intent(MessageListActivity.this, MessageActivity.class);
             startActivity(intent);
@@ -126,65 +127,28 @@ public class MessageListActivity extends Activity {
     };
 
     private void showError(MootifyException e) {
-        
-    }  
+    }
 
-  
+
     public void onRefresh(View view) {
         Toast.makeText(this,"Loading Messages ..." , Toast.LENGTH_SHORT).show();
-        
+
         MessageService serviceMessage =  (MessageService) ServiceLocator.getInstance(ServiceNames.MESSAGE_SERVICE);
-        
     }
 
     private boolean onSaveCourse(Course course) {
-        if (this.dao != null && course != null) {
-           if (this.dao.getCourseById(true, course.getId()) == null) {
-               ContentValues values = new ContentValues();
-               values.put(Course.COLS[1], course.getId());
-               values.put(Course.COLS[2], course.getName());
-               this.dao.insert(Course.DATABASE_TABLE, values);
-             
-               return true;
-           }
-        }
 
-        return false;
+        return (this.dao.insertCourse(course));
    }
 
     private boolean onSaveForum(Forum forum) {
-        if (this.dao != null && forum != null) {
-            if (this.dao.getForumById(true, forum.getId()) == null) {
-                ContentValues values = new ContentValues();
-                values.put(Forum.COLS[1], forum.getId());
-                values.put(Forum.COLS[2], forum.getName());
-                values.put(Forum.COLS[3], forum.getType());
-                values.put(Forum.COLS[4], forum.getCourseId());			// course.getId();
-                this.dao.insert(Forum.DATABASE_TABLE, values);
 
-                return true;
-            }
-        }
-
-        return false;
+        return (this.dao.insertForum(forum));
     }
 
     private boolean onSaveMessage(Message message) {
-        if (this.dao != null && message != null) {
-            if (this.dao.getMessageById(true, message.getId()) == null) {
-                ContentValues values = new ContentValues();
-                values.put(Message.COLS[1], message.getId());
-                values.put(Message.COLS[2], message.getName());
-                values.put(Message.COLS[3], message.getDate());
-                values.put(Message.COLS[4], message.getContent());
-                values.put(Message.COLS[5], message.getForumId());		// forum.getId();
-                this.dao.insert(Message.DATABASE_TABLE, values);
 
-                return true;
-            }
-        }
-
-        return false;
+        return (this.dao.insertMessage(message));
     }
 
     // Método para la opcion buscar mensajes.
@@ -210,18 +174,15 @@ public class MessageListActivity extends Activity {
     }
 
     // Clase para infler el ListView.
-    private class Adaptador extends ArrayAdapter<ListItem> 
-    {
+    private class Adaptador extends ArrayAdapter<ListItem> {
         private Activity activity;
 
-        public Adaptador(Activity activity, List<ListItem> element) 
-        {
+        public Adaptador(Activity activity, List<ListItem> element) {
             super(activity, R.layout.item_list, element);
             this.activity = activity;
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) 
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = activity.getLayoutInflater();
             View item = inflater.inflate(R.layout.item_list, null);
 

@@ -44,16 +44,15 @@ public class QuickActionMenu extends MyPopUpWindow implements OnClickListener {
     public void onClick(View view) {
         Toast.makeText(this.anchor.getContext(), "Yes... It Works!!!", Toast.LENGTH_SHORT).show();
 
-        if (view.getId() == R.id.discard_q_action) 
-        {
+        if (view.getId() == R.id.discard_q_action) {
             Toast.makeText(this.anchor.getContext(), "Discard Button Clicked!!", Toast.LENGTH_SHORT).show();
         }
-        if (view.getId() == R.id.share_q_action) 
-        {
+
+        if (view.getId() == R.id.share_q_action) {
             Toast.makeText(this.anchor.getContext(), "Share Button Clicked!!", Toast.LENGTH_SHORT).show();
         }
         //this.anchor
-        
+
         this.dismiss();
     }
 }

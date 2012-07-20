@@ -7,6 +7,5 @@ import co.edu.udea.campusmovil.notificador.model.ListItem;
 
 public interface MessageService {
 
-	List<ListItem> findAllMessage(String idEstudiante, String password, int firstRecord, int lastRecord) throws MootifyException;
-
+    List<ListItem> findAllMessage(String idEstudiante, String password, int firstRecord, int lastRecord) throws MootifyException;
 }

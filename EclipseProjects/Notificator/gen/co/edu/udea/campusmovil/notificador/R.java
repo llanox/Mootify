@@ -70,7 +70,7 @@ public final class R {
     }
     public static final class id {
         public static final int Logo=0x7f0c0006;
-        public static final int about=0x7f0c001f;
+        public static final int about=0x7f0c001e;
         public static final int action_bar=0x7f0c001a;
         public static final int actionbar_logo=0x7f0c0004;
         public static final int asunto=0x7f0c0010;
@@ -87,7 +87,7 @@ public final class R {
         public static final int logo_home=0x7f0c000b;
         public static final int message_title=0x7f0c0007;
         public static final int password=0x7f0c000d;
-        public static final int preferences=0x7f0c001e;
+        public static final int preferences=0x7f0c001f;
         public static final int quick_left=0x7f0c0015;
         public static final int quick_right=0x7f0c0018;
         public static final int quickation_image=0x7f0c0009;
@@ -114,7 +114,8 @@ public final class R {
         public static final int view_menssage=0x7f030008;
     }
     public static final class menu {
-        public static final int menu=0x7f0b0000;
+        public static final int main_menu=0x7f0b0000;
+        public static final int menu=0x7f0b0001;
     }
     public static final class string {
         public static final int about=0x7f090017;

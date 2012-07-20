@@ -29,6 +29,7 @@ public class MyPopUpWindow {
 
         this.popUp.setTouchInterceptor(new OnTouchListener() {
             public boolean onTouch(View view, MotionEvent event) {
+
                 if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
                     MyPopUpWindow.this.popUp.dismiss();
 

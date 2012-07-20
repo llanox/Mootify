@@ -23,8 +23,9 @@ public class AppNotificadorActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
-	Dialog dialogo;
-	private Intent intent;
+    private Dialog dialogo;
+    private Intent intent;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,35 +37,34 @@ public class AppNotificadorActivity extends Activity {
         Intent intent = new Intent(AppNotificadorActivity.this, MessageListActivity.class);
         this.startActivity(intent);
     }
-    
+
     //Opci�n menu de preferencias en la vista del login, accede al recurso creado en la carpeta res > menu
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-    	MenuInflater inflater = getMenuInflater();
-    	inflater.inflate(R.menu.menu, menu);
-    	return true;
-    	
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+
+        return true;
     }
-    
+
     //Implementacion de cada una de las opciones del menu
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-    	switch (item.getItemId())
-    	{
-    	case R.id.preferences:
-    		this.intent = new Intent(this,Preferences.class);//con el intent puedo llamar a la clase que maneja el xml settings
-    		startActivity(this.intent);
-    		return true;    	
-    		
-    	case R.id.about:    		
-    		dialogo = new Dialog(this);    		
-    		dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);//opcion para mostrar el dialog sin el titulo o cabecera
-    		dialogo.setContentView(R.layout.about_text);    		
-    		dialogo.show();   		
-    		return true;
-    	
-    	default:
-    		return super.onOptionsItemSelected(item);
-    	}
-    }   
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            /*case R.id.preferences:
+                this.intent = new Intent(this, Preferences.class);//con el intent puedo llamar a la clase que maneja el xml settings
+                startActivity(this.intent);
+
+                return true;*/
+
+            case R.id.about:
+                this.dialogo = new Dialog(this);
+                this.dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);//opcion para mostrar el dialog sin el titulo o cabecera
+                this.dialogo.setContentView(R.layout.about_text);
+                this.dialogo.show();
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
