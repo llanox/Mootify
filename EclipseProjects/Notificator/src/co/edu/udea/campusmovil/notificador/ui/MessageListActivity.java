@@ -153,7 +153,7 @@ public class MessageListActivity extends Activity {
             	refresh_search.setVisibility(View.VISIBLE);
             	refresh_search.setClickable(true) ;        	
             	
-            	separator_search.setVisibility(View.INVISIBLE);
+            	separator_search.setVisibility(View.VISIBLE);
             	separator_search.setClickable(true);
             	
             	in_search = false;        		
@@ -230,7 +230,7 @@ public class MessageListActivity extends Activity {
         	refresh_search.setVisibility(View.VISIBLE);
         	refresh_search.setClickable(true) ;        	
         	
-        	separator_search.setVisibility(View.INVISIBLE);
+        	separator_search.setVisibility(View.VISIBLE);
         	separator_search.setClickable(true);
         	
         	in_search = false;

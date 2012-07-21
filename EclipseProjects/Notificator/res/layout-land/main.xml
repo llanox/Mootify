@@ -45,11 +45,13 @@
 
     <Button
         android:id="@+id/login"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignRight="@+id/password"
+        android:layout_below="@id/password"
         android:onClick="onLogin"
         android:text="@string/login"
         android:width="@dimen/login_button_width" />
+    
 </RelativeLayout>
