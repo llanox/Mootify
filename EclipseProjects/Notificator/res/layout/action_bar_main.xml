@@ -47,6 +47,20 @@
         android:layout_toLeftOf="@id/refresh"
         android:layout_width="@dimen/actionbar_separator_width"
         android:src="@drawable/separator" />
+    
+    <EditText
+        android:id="@+id/search_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/actionbar_logo"
+        android:layout_marginLeft="4sp"
+        android:layout_marginRight="6sp"
+        android:layout_marginTop="5sp"
+        android:hint="@string/search_tip"
+        android:layout_toLeftOf="@id/separator1"
+        android:layout_toRightOf="@id/actionbar_logo"
+        android:clickable="false"
+        android:visibility="invisible"/>
 
     <ImageView
         android:contentDescription="@string/description_logo"

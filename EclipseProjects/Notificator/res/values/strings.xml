@@ -45,4 +45,6 @@
     <string name="user_name_summary">Cambiar de usuario</string>
     <string name="password_title">Contraseña</string>
     <string name="password_summary">Cambiar de contraseña</string>
+    <string name="search_title">Busqueda de mensaje</string>
+    <string name="search_tip">Escriba alguna palabra relacionada</string>
 </resources>

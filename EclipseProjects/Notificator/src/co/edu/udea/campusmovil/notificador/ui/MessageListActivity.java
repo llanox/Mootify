@@ -20,6 +20,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +55,11 @@ public class MessageListActivity extends Activity {
     private SharedPreferences preferences;//con esto puedo acceder a las preferencias del usuario   
     private Dialog dialogo;
     private List<ListItem> listWithPreferences;
+    private EditText editText;
+    private ImageButton refresh_search;
+    private ImageView separator_search;
+    private String words;
+    private boolean in_search = false;
 
     @Override
     public void onBackPressed() {
@@ -90,7 +98,7 @@ public class MessageListActivity extends Activity {
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
     }
 
-  //Opci�n menu de preferencias en la vista de la lista de mensajes, accede al recurso creado en la carpeta res > menu
+  //Opcion menu en la vista de la lista de mensajes, accede al recurso creado en la carpeta res > menu
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -134,6 +142,24 @@ public class MessageListActivity extends Activity {
     private OnClickListener mCorkyListener = new OnClickListener() {
 
         public void onClick(View v) {
+        	
+        	//si estaba haciendo una busqueda retorno al estado original el action bar
+        	if(in_search == true)
+        	{
+        		editText.setText(null);
+        		editText.setVisibility(View.INVISIBLE);
+            	editText.setClickable(false);        	
+            	
+            	refresh_search.setVisibility(View.VISIBLE);
+            	refresh_search.setClickable(true) ;        	
+            	
+            	separator_search.setVisibility(View.INVISIBLE);
+            	separator_search.setClickable(true);
+            	
+            	in_search = false;        		
+        	}
+        	//si estaba haciendo una busqueda retorno al estado original el action bar
+        	
             Intent intent = new Intent(MessageListActivity.this, MessageActivity.class);
             startActivity(intent);
         }
@@ -167,8 +193,50 @@ public class MessageListActivity extends Activity {
     }
 
     // Método para la opcion buscar mensajes.
-    public void onSearch(View view) {
-        Toast.makeText(this,"Seaching Content ..." , Toast.LENGTH_SHORT).show();
+    public void onSearch(View view) 
+    {
+        //Toast.makeText(this,"Seaching Content ..." , Toast.LENGTH_SHORT).show();
+    	if(in_search == false)
+    	{
+    	editText = (EditText) findViewById(R.id.search_box);
+    	editText.setVisibility(View.VISIBLE);
+    	editText.setClickable(true);    	
+    	
+    	refresh_search = (ImageButton) findViewById(R.id.refresh);
+    	refresh_search.setVisibility(View.INVISIBLE);
+    	refresh_search.setClickable(false) ;
+    	
+    	separator_search = (ImageView) findViewById(R.id.separator3);
+    	separator_search.setVisibility(View.INVISIBLE);
+    	separator_search.setClickable(false);
+    	
+    	in_search = true;
+    	}
+    	else
+    	{
+    		words = editText.getText().toString();
+    		
+    		//aqui va el metodo de busqueda en la base de datos del smartphone
+    		Toast.makeText(this, words, Toast.LENGTH_LONG).show();
+    		//aqui va el metodo de busqueda en la base de datos del smartphone
+    		
+    		//despues el metodo retorna el resultado y lo infla en la lista de mensajes
+    		//despues de encontrar el mensaje se tienen que volver visibles el separador y el boton y hacer invisible el editText
+    		
+    		editText.setText(null);
+    		editText.setVisibility(View.INVISIBLE);
+        	editText.setClickable(false);        	
+        	
+        	refresh_search.setVisibility(View.VISIBLE);
+        	refresh_search.setClickable(true) ;        	
+        	
+        	separator_search.setVisibility(View.INVISIBLE);
+        	separator_search.setClickable(true);
+        	
+        	in_search = false;
+    	}
+    	
+        
     }
 
     public void showQuickActionMenu(View view) {
