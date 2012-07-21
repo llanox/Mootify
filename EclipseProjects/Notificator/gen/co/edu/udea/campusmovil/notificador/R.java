@@ -73,11 +73,11 @@ public final class R {
         public static final int about=0x7f0c001e;
         public static final int action_bar=0x7f0c001a;
         public static final int actionbar_logo=0x7f0c0004;
-        public static final int asunto=0x7f0c0010;
+        public static final int asunto=0x7f0c0013;
         public static final int barra_accion_mensaje=0x7f0c001c;
         public static final int contenido_mensaje=0x7f0c001d;
         public static final int cuerpo_mensaje=0x7f0c0014;
-        public static final int curso=0x7f0c0013;
+        public static final int curso=0x7f0c0010;
         public static final int discard_q_action=0x7f0c0016;
         public static final int elements_list=0x7f0c001b;
         public static final int fecha=0x7f0c0012;

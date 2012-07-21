@@ -49,9 +49,9 @@ public class MessageListActivity extends Activity {
     private GenericDAO dao;
     private ListView list;
     private QuickActionMenu quickAction;
-    private SharedPreferences preferences;//con esto puedo acceder a las preferencias del usuario
-    private PreferencesHandler handler;
+    private SharedPreferences preferences;//con esto puedo acceder a las preferencias del usuario   
     private Dialog dialogo;
+    private List<ListItem> listWithPreferences;
 
     @Override
     public void onBackPressed() {
@@ -72,18 +72,17 @@ public class MessageListActivity extends Activity {
         this.setContentView(R.layout.principal_view);
 
         this.list = (ListView) findViewById(R.id.elements_list);
-        List<ListItem> elementos = new ArrayList<ListItem>();
+        List<ListItem> elements = new ArrayList<ListItem>();
         
         try {
-            elementos = MessageHelper.findAllMsgs("343434", "sasas");
+            elements = MessageHelper.findAllMsgs("343434", "sasas");
         } catch (MootifyException e) {
             showError(e);
         }
 
         this.preferences = this.getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences", Context.MODE_PRIVATE); // Obtengo las preferencias del usuario        
-        this.handler = new PreferencesHandler(this.preferences, elementos);//el handler maneja la lista con todos los mensajes y retorna una nueva lista con la cantidad de elementos sacada de las preferencias
-
-        Adaptador ad = new Adaptador(this, handler.getList());//le paso al adaptador la lista con la cantidad de elementos desceados.
+        listWithPreferences = elements.subList(0, Integer.parseInt(preferences.getString("number_messages", "10")));//guardo en un nuevo arreglo la cantidad que el usuario escogio, desde una posicion 0 hasta la posicion requerida
+        Adaptador ad = new Adaptador(this, listWithPreferences);//le paso al adaptador la lista con la cantidad de elementos desceados.
         this.list.setAdapter(ad);//imprimo los elementos en la lista del formulario
 
         this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);

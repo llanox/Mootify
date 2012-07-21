@@ -13,11 +13,35 @@
 
     <RelativeLayout
         android:id="@+id/header"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2sp"
+        android:layout_height="wrap_content"        
         android:layout_width="fill_parent"
-        android:paddingLeft="2sp" >
+        android:paddingLeft="2sp"
+        android:layout_marginBottom="2sp" >
+        
+        <TextView
+            android:id="@+id/curso"
+            android:text="@string/curso"
+            android:textColor="#ffffff"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>        
 
+        <TextView
+            android:id="@+id/remitente"
+            android:text="@string/remitente"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/curso" />
+
+        <TextView
+            android:id="@+id/fecha"
+            android:text="@string/fecha"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/curso"
+            android:layout_alignParentRight="true" />
+        
         <TextView
             android:ellipsize="marquee"
             android:id="@+id/asunto"
@@ -32,32 +56,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:textSize="18sp"
-            android:layout_marginRight="2sp" />
-
-        <TextView
-            android:id="@+id/remitente"
-            android:text="@string/remitente"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/asunto" />
-
-        <TextView
-            android:id="@+id/fecha"
-            android:text="@string/fecha"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/asunto"
-            android:layout_alignParentRight="true" />
-
-        <TextView
-            android:id="@+id/curso"
-            android:text="@string/curso"
-            android:textColor="#ffffff"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginRight="2sp"
             android:layout_below="@id/remitente" />
+        
     </RelativeLayout>
 
     <ScrollView
