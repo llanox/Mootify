@@ -16,7 +16,8 @@ import android.util.Log;
 
 public class GenericDAO extends SQLiteOpenHelper {
     private static final String LOG = "GenericDAO";
-
+    public static String DATABASE_NAME = "Mootify";
+    public static int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
     private String dataBaseName;
     private String sql;

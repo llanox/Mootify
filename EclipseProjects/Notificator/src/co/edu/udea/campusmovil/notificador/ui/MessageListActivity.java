@@ -47,8 +47,7 @@ import co.edu.udea.campusmovil.notificador.ui.quickaction.QuickActionMenu;
 
 public class MessageListActivity extends Activity {
 
-    public static String DATABASE_NAME = "Mootify";
-    public static int DATABASE_VERSION = 1;
+    
     private GenericDAO dao;
     private ListView list;
     private QuickActionMenu quickAction;
@@ -90,12 +89,12 @@ public class MessageListActivity extends Activity {
 
         this.preferences = this.getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences", Context.MODE_PRIVATE); // Obtengo las preferencias del usuario        
         listWithPreferences = elements.subList(0, Integer.parseInt(preferences.getString("number_messages", "10")));//guardo en un nuevo arreglo la cantidad que el usuario escogio, desde una posicion 0 hasta la posicion requerida
-        Adaptador ad = new Adaptador(this, listWithPreferences);//le paso al adaptador la lista con la cantidad de elementos desceados.
+        Adaptador ad = new Adaptador(this, listWithPreferences);//le paso al adaptador la lista con la cantidad de elementos deseados.
         this.list.setAdapter(ad);//imprimo los elementos en la lista del formulario
 
-        this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
-        this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
-        this.dao = GenericDAO.getInstance(getApplicationContext(), MessageListActivity.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), GenericDAO.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), GenericDAO.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
+        this.dao = GenericDAO.getInstance(getApplicationContext(), GenericDAO.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);
     }
 
   //Opcion menu en la vista de la lista de mensajes, accede al recurso creado en la carpeta res > menu
