@@ -118,4 +118,7 @@ public class AppNotificadorActivity extends Activity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    
+    
+
 }
