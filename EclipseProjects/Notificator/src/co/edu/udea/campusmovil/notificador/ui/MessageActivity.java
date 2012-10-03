@@ -14,12 +14,50 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MessageActivity extends Activity {
+public class MessageActivity extends Activity 
+{
     Dialog dialogo;
-
-    public void onCreate(Bundle savedInstanceState) {
+    // Variables para acceder a los extras de la actividad anterior
+      String subject;
+      String sender;
+      String date;
+      String title;
+      String content;
+     
+    
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.view_menssage);
+        
+        /* Este segmento es el encargado de recibir los datos que vienen de la actividad anterior MessageListActivity
+         
+         * Bundle datos = this.getIntent().getExtras();
+        
+        subject = new String(datos.getString("subject"));
+        sender = new String(datos.getString("sender"));
+        date = new String(datos.getString("date"));
+        title = new String(datos.getString("title"));
+        content = new String(datos.getString("content"));
+        
+        
+        TextView subjectMessage = (TextView) findViewById(R.id.curso);
+        subjectMessage.setText(subject);
+        
+        TextView senderMessage = (TextView) findViewById(R.id.remitente);
+        senderMessage.setText(sender);
+        
+        TextView dateMessage = (TextView) findViewById(R.id.fecha);
+        dateMessage.setText(date);
+        
+        TextView titleMessage = (TextView) findViewById(R.id.asunto);
+        titleMessage.setText(title);
+        
+        TextView contentMessage = (TextView) findViewById(R.id.cuerpo_mensaje);
+        contentMessage.setText(content);
+        
+        Este segmento es el encargado de recibir los datos que vienen de la actividad anterior MessageListActivity
+        */
     }
 
   //Opción menu de preferencias en la vista del mensaje, accede al recurso creado en la carpeta res > menu
@@ -92,9 +130,6 @@ public class MessageActivity extends Activity {
         sb.append(fecha);
 
         data[1] = sb.toString();
-
-
-
 
         return data;
     }

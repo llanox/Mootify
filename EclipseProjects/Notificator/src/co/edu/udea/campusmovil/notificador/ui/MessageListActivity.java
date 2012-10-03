@@ -2,7 +2,6 @@ package co.edu.udea.campusmovil.notificador.ui;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
@@ -19,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import co.edu.udea.campusmovil.notificador.R;
 import co.edu.udea.campusmovil.notificador.exceptions.MootifyException;
 import co.edu.udea.campusmovil.notificador.helpers.GenericDAO;
@@ -74,16 +75,24 @@ public class MessageListActivity extends Activity {
 
     
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.principal_view);
 
         this.list = (ListView) findViewById(R.id.elements_list);
         List<ListItem> elements = new ArrayList<ListItem>();
         
-        try {
+        //lista nueva con la otra implementacion del adapter
+        //final ArrayList<Message> elementos = new ArrayList<Message>();
+        //lista nueva con la otra implementacion del adapter
+        
+        try 
+        {
             elements = MessageHelper.findAllMsgs("343434", "sasas");
-        } catch (MootifyException e) {
+        } 
+        catch (MootifyException e) 
+        {
             showError(e);
         }
 
@@ -92,6 +101,37 @@ public class MessageListActivity extends Activity {
         Adaptador ad = new Adaptador(this, listWithPreferences);//le paso al adaptador la lista con la cantidad de elementos deseados.
         this.list.setAdapter(ad);//imprimo los elementos en la lista del formulario
 
+        
+           /*En este segmento está la nueva implementacion del adapter y la implementacion del onItemClickListener
+           MessageListActivityAdapter adapter = new MessageListActivityAdapter(this, elementos);
+           this.list.setAdapter(adapter);
+        
+        	list.setOnItemClickListener(new OnItemClickListener()
+        	{
+
+        		public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
+        		{	        							
+        			Message m = (Message) list.getItemAtPosition(position);     							
+				
+        			Intent intent = new Intent(MessageListActivity.this, MessageActivity.class);
+				
+        			//Agregamos los datos del mensaje al intent
+        			intent.putExtra("date", n.getDate());
+        			intent.putExtra("title", n.getName());
+        			intent.putExtra("sender", n.getSender());
+        			intent.putExtra("subject", n.getSubject());
+        			intent.putExtra("content", n.getContent());
+        			//Agregamos los datos del mensaje al intent
+				
+        			//Iniciamos el intent que llama al mensaje
+        			startActivity(intent);
+        		}
+        	
+        	} );
+        	 En este segmento está la nueva implementacion del adapter y la implementacion del onItemClickListener
+         */
+        
+        
         this.dao = GenericDAO.getInstance(getApplicationContext(), GenericDAO.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
         this.dao = GenericDAO.getInstance(getApplicationContext(), GenericDAO.DATABASE_NAME, Forum.TABLE_CREATE, Forum.DATABASE_TABLE, 1);
         this.dao = GenericDAO.getInstance(getApplicationContext(), GenericDAO.DATABASE_NAME, Message.TABLE_CREATE, Message.DATABASE_TABLE, 1);

@@ -2,8 +2,8 @@ package co.edu.udea.campusmovil.notificador.model;
 
 /*
  * Esta clase es la encargada de manejar los datos que
- * tiene el mensaje: t√≠tulo, materia, fecha y remitente.
- * A trav√©s de esta clase y de sus m√©todos accesores podemos
+ * tiene el mensaje: tÌtulo, materia, fecha y remitente.
+ * A traves de esta clase y de sus mÈtodos accesores podemos
  * obtener cada uno de los datos del mensaje.
  */
 
