@@ -10,16 +10,18 @@ package co.edu.udea.campusmovil.notificador.model;
 public class ListItem {
 
     private String date;
-    private String sender;
-    private String subject;
     private String title;
+    private String sender;
+    private String subject;    
+    private String content;
 
     // Consructor.
-    public ListItem(String title, String subject, String sender, String date) {
+    public ListItem(String date,String title,String sender,String subject, String content) {
        this.setDate(date);
        this.setSender(sender);
        this.setSubject(subject);
        this.setTitle(title);
+       this.setContent(content);
     }
 
     public String getDate() {
@@ -57,4 +59,12 @@ public class ListItem {
     public void setTitle(String title) {
         this.title = title;
     }
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
 }

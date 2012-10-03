@@ -33,7 +33,7 @@
         android:textColor="@color/item_list_textcolor"
         android:textSize="12sp" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/quickation_image"
         android:layout_width="35sp"
         android:layout_height="35sp"

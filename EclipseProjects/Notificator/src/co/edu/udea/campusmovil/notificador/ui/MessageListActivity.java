@@ -53,8 +53,8 @@ public class MessageListActivity extends Activity {
     private ListView list;
     private QuickActionMenu quickAction;
     private SharedPreferences preferences;//con esto puedo acceder a las preferencias del usuario   
-    private Dialog dialogo;
-    private List<ListItem> listWithPreferences;
+    private Dialog dialogo;    
+    private ArrayList<ListItem> listWithPreferences;
     private EditText editText;
     private ImageButton refresh_search;
     private ImageView separator_search;
@@ -62,7 +62,8 @@ public class MessageListActivity extends Activity {
     private boolean in_search = false;
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() 
+    {
     	super.onBackPressed();
     	Log.d(this.getClass().getName(), "Pressing Back Button");
     	this.finish();
@@ -81,55 +82,65 @@ public class MessageListActivity extends Activity {
         this.setContentView(R.layout.principal_view);
 
         this.list = (ListView) findViewById(R.id.elements_list);
-        List<ListItem> elements = new ArrayList<ListItem>();
-        
-        //lista nueva con la otra implementacion del adapter
-        //final ArrayList<Message> elementos = new ArrayList<Message>();
-        //lista nueva con la otra implementacion del adapter
+        ArrayList<ListItem> elements = new ArrayList<ListItem>();        
         
         try 
         {
-            elements = MessageHelper.findAllMsgs("343434", "sasas");
+            elements = (ArrayList<ListItem>) MessageHelper.findAllMsgs("343434", "sasas");
         } 
         catch (MootifyException e) 
         {
             showError(e);
-        }
-
-        this.preferences = this.getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences", Context.MODE_PRIVATE); // Obtengo las preferencias del usuario        
-        listWithPreferences = elements.subList(0, Integer.parseInt(preferences.getString("number_messages", "10")));//guardo en un nuevo arreglo la cantidad que el usuario escogio, desde una posicion 0 hasta la posicion requerida
-        Adaptador ad = new Adaptador(this, listWithPreferences);//le paso al adaptador la lista con la cantidad de elementos deseados.
-        this.list.setAdapter(ad);//imprimo los elementos en la lista del formulario
-
+        }       
         
-           /*En este segmento está la nueva implementacion del adapter y la implementacion del onItemClickListener
-           MessageListActivityAdapter adapter = new MessageListActivityAdapter(this, elementos);
-           this.list.setAdapter(adapter);
+          // En este segmento está la nueva implementacion del adapter y la implementacion del onItemClickListener
+        	this.preferences = this.getSharedPreferences("co.edu.udea.campusmovil.notificador_preferences", Context.MODE_PRIVATE); // Obtengo las preferencias del usuario        
+        	//listWithPreferences = (ArrayList<ListItem>) elements.subList(0, Integer.parseInt(preferences.getString("number_messages", "10")));//guardo en un nuevo arreglo la cantidad que el usuario escogio, desde una posicion 0 hasta la posicion requerida        	
+        	
+        	MessageListActivityAdapter adapter = new MessageListActivityAdapter(this,elements);//cargo la cantidad de mensajes que el usuario elige
+        	this.list.setAdapter(adapter);
         
-        	list.setOnItemClickListener(new OnItemClickListener()
+        	list.setOnItemClickListener(new OnItemClickListener()//utilizo el listener del listview para capturar la seleccion sobre un elemento de la lista
         	{
 
         		public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
-        		{	        							
-        			Message m = (Message) list.getItemAtPosition(position);     							
+        		{	
+        			//Cambio la apariencia del action bar cuando elijo la opcion search
+        			if(in_search == true)
+                	{
+                		editText.setText(null);
+                		editText.setVisibility(View.INVISIBLE);
+                    	editText.setClickable(false);        	
+                    	
+                    	refresh_search.setVisibility(View.VISIBLE);
+                    	refresh_search.setClickable(true) ;        	
+                    	
+                    	separator_search.setVisibility(View.VISIBLE);
+                    	separator_search.setClickable(true);
+                    	
+                    	in_search = false;        		
+                	}
+        			//Cambio la apariencia del action bar cuando elijo la opcion search
+        			
+        			ListItem m = (ListItem) list.getItemAtPosition(position);  //creo un objeto del tipo ListItem para pasar informacion de una actividad a otra   							
 				
         			Intent intent = new Intent(MessageListActivity.this, MessageActivity.class);
 				
         			//Agregamos los datos del mensaje al intent
-        			intent.putExtra("date", n.getDate());
-        			intent.putExtra("title", n.getName());
-        			intent.putExtra("sender", n.getSender());
-        			intent.putExtra("subject", n.getSubject());
-        			intent.putExtra("content", n.getContent());
+        			intent.putExtra("date", m.getDate());
+        			intent.putExtra("title", m.getTitle());
+        			intent.putExtra("sender", m.getSender());
+        			intent.putExtra("subject", m.getSubject());
+        			intent.putExtra("content", m.getContent());
         			//Agregamos los datos del mensaje al intent
 				
-        			//Iniciamos el intent que llama al mensaje
+        			//Iniciamos el intent que llama a la actividad que muestra el contenido del mensaje
         			startActivity(intent);
         		}
         	
         	} );
-        	 En este segmento está la nueva implementacion del adapter y la implementacion del onItemClickListener
-         */
+        	// En este segmento está la nueva implementacion del adapter y la implementacion del onItemClickListener
+         
         
         
         this.dao = GenericDAO.getInstance(getApplicationContext(), GenericDAO.DATABASE_NAME, Course.TABLE_CREATE, Course.DATABASE_TABLE, 1);
@@ -175,34 +186,7 @@ public class MessageListActivity extends Activity {
         if (this.dao != null) {
             this.dao.close();
         }
-    }
-
-    // Create an anonymous implementation of OnClickListener.
-    private OnClickListener mCorkyListener = new OnClickListener() {
-
-        public void onClick(View v) {
-        	
-        	//si estaba haciendo una busqueda retorno al estado original el action bar
-        	if(in_search == true)
-        	{
-        		editText.setText(null);
-        		editText.setVisibility(View.INVISIBLE);
-            	editText.setClickable(false);        	
-            	
-            	refresh_search.setVisibility(View.VISIBLE);
-            	refresh_search.setClickable(true) ;        	
-            	
-            	separator_search.setVisibility(View.VISIBLE);
-            	separator_search.setClickable(true);
-            	
-            	in_search = false;        		
-        	}
-        	//si estaba haciendo una busqueda retorno al estado original el action bar
-        	
-            Intent intent = new Intent(MessageListActivity.this, MessageActivity.class);
-            startActivity(intent);
-        }
-    };
+    }   
 
     private void showError(MootifyException e) {
     	MessageUtil.showError(this, e);
@@ -293,30 +277,5 @@ public class MessageListActivity extends Activity {
         if (this.quickAction != null) {
             this.quickAction.dismiss();
         }
-    }
-
-    // Clase para infler el ListView.
-    private class Adaptador extends ArrayAdapter<ListItem> {
-        private Activity activity;
-
-        public Adaptador(Activity activity, List<ListItem> element) {
-            super(activity, R.layout.item_list, element);
-            this.activity = activity;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = activity.getLayoutInflater();
-            View item = inflater.inflate(R.layout.item_list, null);
-
-            TextView title = (TextView) item.findViewById(R.id.message_title);
-            title.setText(getItem(position).getTitle());
-
-            TextView materia = (TextView) item.findViewById(R.id.subject);
-            materia.setText(getItem(position).getSubject());
-
-            item.setOnClickListener(mCorkyListener);
-
-            return item;
-        }
-    }
+    }    
 }

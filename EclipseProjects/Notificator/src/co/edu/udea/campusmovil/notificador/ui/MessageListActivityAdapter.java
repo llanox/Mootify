@@ -3,7 +3,7 @@ package co.edu.udea.campusmovil.notificador.ui;
 import java.util.ArrayList;
 
 import co.edu.udea.campusmovil.notificador.R;
-import co.edu.udea.campusmovil.notificador.model.Message;
+import co.edu.udea.campusmovil.notificador.model.ListItem;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +11,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/*
+ * Esta clase es utilizada para poder dibujar en el listview los elementos
+ * que representan los mensages que se traen desde el servicio
+ * utiliza el objeto de tipo ListItem (esto por el momento mientras se termina el consumo del servicio)
+ */
 public class MessageListActivityAdapter extends BaseAdapter
 {
-	private ArrayList<Message> messageList;
+	private ArrayList<ListItem> messageList;
 	private LayoutInflater layoutInflater;
 	
-	public MessageListActivityAdapter(Context context, ArrayList<Message> Messages)
+	public MessageListActivityAdapter(Context context, ArrayList<ListItem> Messages)
 	{
 		this.layoutInflater = LayoutInflater.from(context);
 		this.messageList = Messages;
@@ -44,11 +49,9 @@ public class MessageListActivityAdapter extends BaseAdapter
 			
 			valuesOfMessage = new MessageView();
 			
-			valuesOfMessage.date= (TextView) convertView.findViewById(R.id.fecha);//recibe el la fecha que hay en la lista
-			valuesOfMessage.title = (TextView) convertView.findViewById(R.id.asunto);//recibe el titulo del mensaje que hay en la lista
-			valuesOfMessage.sender = (TextView) convertView.findViewById(R.id.remitente);//recibe el remitente del mensaje que hay en la lista
-			valuesOfMessage.subject = (TextView) convertView.findViewById(R.id.curso);//recibe el titulo del mensaje que hay en la lista
-			valuesOfMessage.content = (TextView) convertView.findViewById(R.id.cuerpo_mensaje);//recibe el titulo del mensaje que hay en la lista
+			valuesOfMessage.title= (TextView) convertView.findViewById(R.id.message_title);	//asocia un texview con el textview que contiene el titulo 		
+			valuesOfMessage.subject = (TextView) convertView.findViewById(R.id.subject); //asocia un texview con el textview que contiene el curso
+			
 						
 			convertView.setTag(valuesOfMessage); //Marcamos el objeto con los nuevos datos obtenidos del elemento de la lista
 		}
@@ -56,24 +59,23 @@ public class MessageListActivityAdapter extends BaseAdapter
 		
 			valuesOfMessage = (MessageView) convertView.getTag();
 		
-			Message messageHelper = (Message) getItem(position);
+			ListItem messageHelper = (ListItem) getItem(position);//objeto de tipo ItemList para asignar datos y mostrarlos
 			
-			valuesOfMessage.date.setText(messageHelper.getDate());
-			valuesOfMessage.title.setText(messageHelper.getName());
-			//valuesOfMessage.sender.setText(messageHelper.getSender());  Duda, cual clase utilizar y que agregar?
-			//valuesOfMessage.subject.setText(messageHelper.getSubject()); Duda, cual clase utilizar y que agregar?
-			valuesOfMessage.content.setText(messageHelper.getContent());
+			valuesOfMessage.title.setText(messageHelper.getTitle());
+			valuesOfMessage.subject.setText(messageHelper.getSubject());  
+			
+			
 			
 			return convertView;		
 	}
 	
-	class MessageView
+	class MessageView // clase para manejar los datos mas facilmente dentro del adaptador
 	{
-		TextView date;
+		TextView date;//para el futuro
 		TextView title;
-		TextView sender;
+		TextView sender;//para el futuro
 		TextView subject;
-		TextView content;
+		TextView content;//para el futuro
 		
 	}
 	
